@@ -4,21 +4,64 @@
 	<title>FE-Advanced 2021</title>
 	<style type="text/css">
 		h1, h3 {
-			text-align: center;
+			text-align:center;
 		}
+
+		.container {
+			max-width: 700px;
+		}
+		.rounded {
+			counter-reset: li -1;
+			list-style: none; 
+			font: 14px "Trebuchet MS", "Lucida Sans";
+			padding: 2;
+			text-shadow: 0 1px 0 rgba(255,255,255,.5);
+			}
+		.rounded a {
+			position: relative;
+			display: block;
+			padding: .4em .4em .4em 2em;
+			margin: .5em 0;
+			background: #DAD2CA;
+			color: #444;
+			text-decoration: none;
+			border-radius: .3em;
+			transition: .3s ease-out;
+			}
+		.rounded a:hover {background: #E9E4E0;}
+		.rounded a:hover:before {transform: rotate(360deg);}
+		.rounded a:before {
+			content: counter(li);
+			counter-increment: li;
+			position: absolute;
+			left: -1.3em;
+			top: 50%;
+			margin-top: -1.3em;
+			background: #8FD4C1;
+			height: 2em;
+			width: 2em;
+			line-height: 2em;
+			border: .3em solid white;
+			text-align: center;
+			font-weight: bold;
+			border-radius: 2em;
+			transition: all .3s ease-out;
+			}
 	</style>
 </head>
 <body>
-	<h1>Cursor FE-Advanced course Homeworks 2021</h1>
-	<h3>by Veronika Kostenko</h3>
-	<ul>
-		<li>Task #0
-			<a href="Git.html">Git commands dictionary</a>
-		</li>
-		<li>
-			Task #1
-			<a href="https://veronikos.github.io/cursor2021/01-hw-variables/01-hw.html">Variables and data types</a>
-		</li>
-	</ul>
+	<div class="container">
+		<h1>Cursor FE-Advanced course Homeworks 2021</h1>
+		<h3>by Veronika Kostenko</h3>
+		<ol class="rounded" start=0>
+			<li>Task #0:
+				<a href="Git.html">Git commands dictionary</a>
+			</li>
+			<li>
+				Task #1:
+				<a href="https://veronikos.github.io/cursor2021/01-hw-variables/01-hw.html">Variables and data types</a>
+			</li>
+		</ol>
+	</container>
 </body>
 </html>
