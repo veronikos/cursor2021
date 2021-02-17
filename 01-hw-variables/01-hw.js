@@ -24,20 +24,16 @@ function isEven(x) {
 	}
 }
 
-
-// Виведіть суму решти, при оплаті всіх товарів (без округлення), якщо клієнт платить 500 грн.
-
 // Виведіть середнє значення цін, округлене до другого знаку після коми
 const animals = [cat, dog, bear];
 const mean = sum/animals.length;
 
-
 //Створіть змінну, в якої збережіть випадкову знижку (використовуйте функцію Math.random).
 const discount = Math.random();
 
-
 // Зробіть клієнту випадкову знижку та виведіть суму до оплати округлену до 2 знаків після коми.
 const discountSum = (sum*discount);
+const sumToPay = (sum*(1-discount));
 // Виведіть чистий прибуток, якщо клієнт заплатив зі знижкою 
 // та собівартість товарів рівно в два рази нижче їх ціни?
 const sobivartist = sum/2;
@@ -55,6 +51,7 @@ console.log (`
 	Mean value of the goods, rounded: ${mean.toFixed(2)}
 	----
 	Random discount: ${Math.floor(discount*100)} %
+	Sum to pay: ${Number(sumToPay.toFixed(2))}
 	Sum of a discount ${discountSum.toFixed(2)}
 	Clear profit is ${profit.toFixed(2)}
 	`);
