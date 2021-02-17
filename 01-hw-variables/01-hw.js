@@ -32,7 +32,7 @@ function isEven(x) {
 		return false;
 	}
 }
-console.log(isEven(Math.floor(sum))); 
+console.log(isEven(Math.floor(flooredSum))); 
 
 // Виведіть суму решти, при оплаті всіх товарів (без округлення), якщо клієнт платить 500 грн.
 console.log(500-sum);
@@ -65,7 +65,7 @@ console.log (`
 	Sum: ${sum}
 	Sum rounded to a less number: ${flooredSum}
 	Sum rounded to 100: ${floorto100(flooredSum)}
-	Boolean value, is value even? ${isEven(Math.floor(sum))} 
+	Boolean value, is value even? ${isEven(Math.floor(flooredSum))} 
 	Remaining sum (from 500), after purshasing all goods: ${500-sum}
 	Mean value of the goods, rounded: ${mean.toFixed(2)}
 	----
