@@ -47,13 +47,13 @@ let discount = Math.random();
 console.log("Discount is " + Math.floor(discount*100) + "%");
 
 // Зробіть клієнту випадкову знижку та виведіть суму до оплати округлену до 2 знаків після коми.
-let invoice = (500*(1-discount));
+let invoice = (sum*(1-discount));
 console.log("Sum with the discount is " + invoice.toFixed(2))
 // Виведіть чистий прибуток, якщо клієнт заплатив зі знижкою 
 // та собівартість товарів рівно в два рази нижче їх ціни?
 let sobivartist = sum/2;
 console.log("Sobivartist is " + sobivartist.toFixed(2))
-let lessPayed = 500 - invoice;
+let lessPayed = sum - invoice;
 console.log("He payed us " + lessPayed.toFixed(2) + " less.")
 let profit = sobivartist-lessPayed;
 console.log("Clear profit is " + profit.toFixed(2));
