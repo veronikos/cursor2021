@@ -32,7 +32,7 @@ function isEven(x) {
 		return false;
 	}
 }
-console.log(isEven(flooredSum)); 
+console.log(isEven(Math.floor(sum))); 
 
 // Виведіть суму решти, при оплаті всіх товарів (без округлення), якщо клієнт платить 500 грн.
 console.log(500-sum);
@@ -62,16 +62,15 @@ console.log("Clear profit is " + profit.toFixed(2));
 console.log (`
 	Max price: ${Math.max(cat, dog, bear)} 
 	Min price: ${Math.min(cat, dog, bear)}
-	Value of all goods: ${sum}
-	Value rounded to a less number: ${flooredSum}
-	Value rounded to 100: ${floorto100(flooredSum)}
-	Boolean value, is value even? ${isEven(flooredSum)} 
+	Sum: ${sum}
+	Sum rounded to a less number: ${flooredSum}
+	Sum rounded to 100: ${floorto100(flooredSum)}
+	Boolean value, is value even? ${isEven(Math.floor(sum))} 
 	Remaining sum (from 500), after purshasing all goods: ${500-sum}
 	Mean value of the goods, rounded: ${mean.toFixed(2)}
 	----
 	Random discount: ${Math.floor(discount*100)} %
-	Sum with the discount is ${invoice.toFixed(2)}
-	Cost of the goods itself: ${sobivartist.toFixed(2)}
-	Customer payed us ${lessPayed.toFixed(2)} uah less.
+	Cost with the discount is ${invoice.toFixed(2)}
+	Sum of a discount ${lessPayed.toFixed(2)}.
 	Clear profit is ${profit.toFixed(2)}
 	`);
