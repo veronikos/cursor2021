@@ -1,23 +1,20 @@
-let cat = 15.678;
-let dog = 123.965;
-let bear = 90.2345;
+const cat = 15.678;
+const dog = 123.965;
+const bear = 90.2345;
 
-let sum = cat+dog+bear;
-let flooredSum = Math.floor(cat)+Math.floor(dog)+Math.floor(bear);
+const sum = cat+dog+bear;
+const flooredSum = Math.floor(cat)+Math.floor(dog)+Math.floor(bear);
 // округлено до сотых вверх
 function ceilto100(num){
 	return Math.ceil(num/100)*100;
 }
-
 
 // округлено до сотых вниз
 function floorto100(num){
 	return Math.floor(num/100)*100;
 }
 
-
 //Виведіть булеве значення: чи є сума всіх товарів (округлена в меншу сторону) парним чи непарним числом? 
-
 function isEven(x) {
 	if (x % 2 == 0) {
 		return true;
@@ -31,22 +28,20 @@ function isEven(x) {
 // Виведіть суму решти, при оплаті всіх товарів (без округлення), якщо клієнт платить 500 грн.
 
 // Виведіть середнє значення цін, округлене до другого знаку після коми
-let animals = [cat, dog, bear];
-let mean = sum/animals.length;
+const animals = [cat, dog, bear];
+const mean = sum/animals.length;
 
 
 //Створіть змінну, в якої збережіть випадкову знижку (використовуйте функцію Math.random).
-let discount = Math.random();
+const discount = Math.random();
 
 
 // Зробіть клієнту випадкову знижку та виведіть суму до оплати округлену до 2 знаків після коми.
-let invoice = (sum*(1-discount));
-
+const discountSum = (sum*discount);
 // Виведіть чистий прибуток, якщо клієнт заплатив зі знижкою 
 // та собівартість товарів рівно в два рази нижче їх ціни?
-let sobivartist = sum/2;
-let lessPayed = sum - invoice;
-let profit = sobivartist-lessPayed;
+const sobivartist = sum/2;
+const profit = sobivartist-discountSum;
 
 // Advanced
 console.log (`
@@ -60,7 +55,6 @@ console.log (`
 	Mean value of the goods, rounded: ${mean.toFixed(2)}
 	----
 	Random discount: ${Math.floor(discount*100)} %
-	Cost with the discount is ${invoice.toFixed(2)}
-	Sum of a discount ${lessPayed.toFixed(2)}.
+	Sum of a discount ${discountSum.toFixed(2)}
 	Clear profit is ${profit.toFixed(2)}
 	`);
