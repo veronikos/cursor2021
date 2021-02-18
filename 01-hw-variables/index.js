@@ -38,3 +38,4 @@ console.log (`
 	Sum of a discount ${discountSum}
 	Clear profit is ${profit}
 	`);
+	
