@@ -24,18 +24,17 @@ const profit = + (sobivartist - discountSum).toFixed(2);
 
 // Advanced
 console.log (`
-	Max price: ${Math.max(cat, dog, bear)} 
-	Min price: ${Math.min(cat, dog, bear)}
-	Sum: ${totalPriceOfAnimals}
-	Sum rounded to a less number: ${flooredSum}
-	Sum rounded to 100: ${Math.floor(flooredSum / 100) * 100}
-	Is sum value even? ${flooredSum % 2 === 0} 
-	Remaining sum (from 500), after purshasing all goods: ${payment - totalPriceOfAnimals}
-	Mean value of the goods, rounded: ${meanPrice}
-	----
-	Random discount: ${discount} %
-	Sum to pay: ${sumToPay}
-	Sum of a discount ${discountSum}
-	Clear profit is ${profit}
+	  Max price: ${Math.max(cat, dog, bear)} 
+	  Min price: ${Math.min(cat, dog, bear)}
+	  Sum: ${totalPriceOfAnimals}
+	  Sum rounded to a less number: ${flooredSum}
+	  Sum rounded to 100: ${Math.floor(flooredSum / 100) * 100}
+	  Is sum value even? ${flooredSum % 2 === 0} 
+	  Remaining sum (from 500), after purshasing all goods: ${payment - totalPriceOfAnimals}
+	  Mean value of the goods, rounded: ${meanPrice}
+	  ----
+	  Random discount: ${discount} %
+	  Sum to pay: ${sumToPay}
+	  Sum of a discount ${discountSum}
+	  Clear profit is ${profit}
 	`);
-	
