@@ -5,20 +5,17 @@ if (parseInt(numberN) !== NaN) {
         if ((parseInt(numberM) !== NaN) && (numberN < numberM)) {
 
             const countEvens = prompt(`Do you want to include even numbers? (enter: true, false)`);
-            alert(typeof countEvens);
             if  (countEvens === "true") {
                 let x = parseInt(numberN);
-        
                  while (numberN < numberM) {
                     numberN++;
                     x += numberN;
                 } alert(`Sum is ${x}!`);
             }  else {
                 let x = parseInt(numberN);
-        
                  while (numberN < numberM) {
                     numberN++;
-                    if (num % 2) x += numberN;
+                    if (numberN % 2) x += numberN;
                 } alert(`Sum is ${x}!`);
             }   
         }   else {
