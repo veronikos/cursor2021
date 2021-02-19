@@ -4,8 +4,8 @@ if (parseInt(numberN) !== NaN) {
     const numberM = prompt(`First number is: ${parseInt(numberN)}. Enter the second number`);
         if ((parseInt(numberM) !== NaN) && (numberN < numberM)) {
 
-            const countEvens = prompt(`Do you want to include even numbers? (enter: true, false)`);
-            if  (countEvens === "true") {
+            const countEvens = confirm(`Do you want to include even numbers?`);
+            if  (countEvens) {
                 let x = parseInt(numberN);
                  while (numberN < numberM) {
                     numberN++;
