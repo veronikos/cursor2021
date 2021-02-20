@@ -1,36 +1,52 @@
-let numberN = prompt("Enter the first number");
+// get first number from user, check if it is NaN
+let numberA;
+do {
+  numberA = parseInt(prompt("Enter the first number"));
+} while (Number.isNaN(numberA));
 
-if (parseInt(numberN) !== NaN) {
-    const numberM = prompt(`First number is: ${parseInt(numberN)}. Enter the second number`);
-        if ((parseInt(numberM) !== NaN) && (numberN < numberM)) {
+// get second number from user (same as A)
+let numberB;
+do {
+  numberB = parseInt(prompt("Enter the second number"));
+} while (Number.isNaN(numberB));
 
-            const countEvens = confirm(`Do you want to include even numbers?`);
-            if  (countEvens) {
-                let x = parseInt(numberN);
-                 while (numberN < numberM) {
-                    numberN++;
-                    x += numberN;
-                } alert(`Sum is ${x}!`);
-            }  else {
-                let x = parseInt(numberN);
-                 while (numberN < numberM) {
-                    numberN++;
-                    if (numberN % 2) x += numberN;
-                } alert(`Sum is ${x}!`);
-            }   
-        }   else {
-        alert(`Second number (${numberM}) must be bigger that first (${numberN}). Play again`)
-    }
+// Swich numbers, if B is smaller than A
+if (numberB < numberA) {
+  [numberA, numberB] = [numberB, numberA];
 }
 
-// часть для того где не считать парные числа
+// подсчитывать четные числа в сумму или нет:
+const countEvenNumbers = confirm(`Do you want to include even numbers?`);
+let answerSum = 0;
 
-// let numberN = 30;
-// let numberM = 40;
-// let x = parseInt(numberN);
-        
-//  while (numberN < numberM) {
-//  	numberN++;
-//   x += numberN;
-//   if(numberN%2) x -= numberN;
-// 	} console.log(`Sum is ${x}!`);
+if (countEvenNumbers) {
+  for (numberA; numberA <= numberB; numberA++) {
+    answerSum += numberA;
+  }
+  alert(`Sum is ${answerSum}!`);
+} else {
+  for (numberA; numberA <= numberB; numberA++) {
+    if (numberA % 2) answerSum += numberA;
+  }
+  alert(`Sum is ${answerSum}!`);
+}
+
+
+// хотела написать последнюю часть с подсчетом, 
+// при помощи while цикла. но не получается. 
+// не засчитывает первое число 
+// (например от 1 до 3 сумма 5, вместо 6)
+
+// if (countEvenNumbers) {
+//   while (numberA < numberB) {
+//     numberA++;
+//     answerSum += numberA;
+//   } alert(`Sum is ${answerSum}!`);
+// } else {
+//   while (numberA < numberB) {
+//     numberA++;
+//     if (numberA % 2) answerSum += numberA;
+//   } alert(`Sum is ${answerSum}!`); 
+// }
+
+
