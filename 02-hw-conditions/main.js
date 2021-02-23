@@ -1,11 +1,11 @@
 // get first number from user, check if it is NaN
-let numberA;
+let numberA = null;
 do {
   numberA = parseInt(prompt("Enter the first number"));
 } while (Number.isNaN(numberA));
 
 // get second number from user (same as A)
-let numberB;
+let numberB = null;
 do {
   numberB = parseInt(prompt("Enter the second number"));
 } while (Number.isNaN(numberB));
@@ -19,34 +19,20 @@ if (numberB < numberA) {
 const countEvenNumbers = confirm(`Do you want to include even numbers?`);
 let answerSum = 0;
 
-if (countEvenNumbers) {
-  for (numberA; numberA <= numberB; numberA++) {
-    answerSum += numberA;
+for (let i = numberA; i <= numberB; i++) { 
+  if (!countEvenNumbers && (i % 2 === 0)) { 
+   continue;
+  }
+   answerSum += i;
   }
   alert(`Sum is ${answerSum}!`);
-} else {
-  for (numberA; numberA <= numberB; numberA++) {
-    if (numberA % 2) answerSum += numberA;
-  }
-  alert(`Sum is ${answerSum}!`);
-}
 
-
-// хотела написать последнюю часть с подсчетом, 
-// при помощи while цикла. но не получается. 
-// не засчитывает первое число 
-// (например от 1 до 3 сумма 5, вместо 6)
-
-// if (countEvenNumbers) {
-//   while (numberA < numberB) {
-//     numberA++;
-//     answerSum += numberA;
-//   } alert(`Sum is ${answerSum}!`);
-// } else {
-//   while (numberA < numberB) {
-//     numberA++;
-//     if (numberA % 2) answerSum += numberA;
-//   } alert(`Sum is ${answerSum}!`); 
-// }
-
-
+// рабочий вариант с while:
+// while (numberA <= numberB) {
+//   if (!countEvenNumbers && numberA % 2 === 0) {
+//   numberA++;
+//   continue;
+//   } answerSum += numberA;
+//     numberA++
+//   }
+//   alert(`Sum is ${answerSum}!`);
