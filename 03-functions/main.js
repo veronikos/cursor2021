@@ -63,12 +63,30 @@ document.writeln(`<p>6. Count letters "a" in a word "Асталависта, н�
 function convertCurrency(value) {
   if (value[value.length - 1] === "$") {
     return `${(parseFloat(value) * 27.65).toFixed(2)}  UAH`;
-  } else {
+  } else if (
+    value[value.length - 3].toLowerCase() === "u" &&
+    value[value.length - 2].toLowerCase() === "a" &&
+    value[value.length - 1].toLowerCase() === "h"
+  ) {
     return `${(parseFloat(value) / 27.65).toFixed(2)} $`;
-  }
+  } else return `We don't convert currency other than $ or UAH`;
 }
 
-document.writeln(`<p>7. Convert $ to UAH (1:27.65) and vice-versa: 
- 201.5$ is ${convertCurrency("201.5$")}; 
- 2765uah is ${convertCurrency("2765uah")} </p>`);
+document.writeln(`<p>7. Convert $ to UAH (1:27.65) and vice-versa:  <br>  
+ 201.5$ is ${convertCurrency("201.5$")}; <br> 
+ 2765uah is ${convertCurrency("2765uah")}; </p>`);
 
+// ex.8 Generate random numeric password 
+function getRandomPassword(digits) {
+  if (digits <= 8 && digits > 0) {
+    return Math.random().toString().slice(-digits);
+  } else if (!digits || digits > 8) {
+    return Math.random().toString().slice(-8);
+  } else return document.writeln("Function accepts only numbers from 1 to 8");
+}
+document.writeln(`8. Random numeric password: ${getRandomPassword(5.61)}`);
+
+// ex.9 Delete letters from a sentence
+function deleteLetters(letter, sentence) {
+
+}
