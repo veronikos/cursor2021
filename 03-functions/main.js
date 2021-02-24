@@ -87,6 +87,15 @@ function getRandomPassword(digits) {
 document.writeln(`8. Random numeric password: ${getRandomPassword(5.61)}`);
 
 // ex.9 Delete letters from a sentence
-function deleteLetters(letter, sentence) {
+// не работает. я еще работаю над этой функцией
+// function deleteLetters(letter, sentence) {
+//   let letter1 = String(letter);
+//   let sentence1 = String(sentence);
+//   for (let j = 0; j < sentence1.length; j++) {
+//     if (sentence1[j] === letter1) {
+//      continue;
+//     } sentence1 = sentence1.replace(j, ""); 
+//   } return sentence1;
+// }
 
-}
+// console.log (deleteLetters("a", "aakalaoannalllla;a l;l;a"))
