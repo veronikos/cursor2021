@@ -50,9 +50,11 @@ function countLetter(letter, word) {
   let count = 0;
 
   for (let i = 0; i <= b.length; i++) {
-    if (b[i] === a) count++;
+    if (b[i] === a) {
+      count++;
+    }
+    return count;
   }
-  return count;
 }
 document.writeln(`<p>6. Count letters "a" in a word "Асталависта, незнание JS!:)": 
   ${countLetter("а", "Асталависта, незнание JS!")}</p>`);
@@ -61,22 +63,22 @@ document.writeln(`<p>6. Count letters "a" in a word "Асталависта, н�
 
 // ex.7 Convert $ to UAH and vice-versa
 function convertCurrency(value) {
-  if (value[value.length - 1] === "$") {
-    return `${(parseFloat(value) * 27.65).toFixed(2)}  UAH`;
-  } else if (
-    value[value.length - 3].toLowerCase() === "u" &&
-    value[value.length - 2].toLowerCase() === "a" &&
-    value[value.length - 1].toLowerCase() === "h"
-  ) {
-    return `${(parseFloat(value) / 27.65).toFixed(2)} $`;
-  } else return `We don't convert currency other than $ or UAH`;
+  value = value.toLowerCase();
+  const ratio = 27.65;
+  if (value.endsWith("$")) {
+    return Number((parseFloat(value) * ratio).toFixed(2));
+  }
+  if (value.endsWith("uah")) {
+    return Number((parseFloat(value) / ratio).toFixed(2));
+  }
+  return `We don't convert currency other than $ or UAH`;
 }
 
 document.writeln(`<p>7. Convert $ to UAH (1:27.65) and vice-versa:  <br>  
- 201.5$ is ${convertCurrency("201.5$")}; <br> 
- 2765uah is ${convertCurrency("2765uah")}; </p>`);
+  201.5$ is ${convertCurrency("201.5$")} UAH; <br> 
+  2765uah is ${convertCurrency("2765uah")} $; </p>`);
 
-// ex.8 Generate random numeric password 
+// ex.8 Generate random numeric password
 function getRandomPassword(digits) {
   if (digits <= 8 && digits > 0) {
     return Math.random().toString().slice(-digits);
@@ -94,7 +96,7 @@ document.writeln(`8. Random numeric password: ${getRandomPassword(5.61)}`);
 //   for (let j = 0; j < sentence1.length; j++) {
 //     if (sentence1[j] === letter1) {
 //      continue;
-//     } sentence1 = sentence1.replace(j, ""); 
+//     } sentence1 = sentence1.replace(j, "");
 //   } return sentence1;
 // }
 
