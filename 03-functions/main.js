@@ -53,8 +53,8 @@ function countLetter(letter, word) {
     if (b[i] === a) {
       count++;
     }
-    return count;
   }
+  return count;
 }
 document.writeln(`<p>6. Count letters "a" in a word "Асталависта, незнание JS!:)": 
   ${countLetter("а", "Асталависта, незнание JS!")}</p>`);
