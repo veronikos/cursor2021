@@ -1,22 +1,37 @@
 document.writeln(`<p>Hello.</p>`);
 
 // ex.1 Max digit from given number
+
+// вариант с Apply
+// function getMaxDigit(number) {
+//   const string = String(number);
+//   return Math.max.apply(Math, string.split(""));
+// }
+
+// document.writeln(`<p>1. Max digit from 372261 is: ${getMaxDigit(372261)} </p>`);
+
+// вариант с циклом:
 function getMaxDigit(number) {
-  const string = String(number);
-  return Math.max.apply(Math, string.split(""));
+  let string = String(number);
+  let maxDigit = 0;
+  for (let i = 0; i < string.length; i++) {
+    if (maxDigit < string[i]) {
+      maxDigit = string[i];
+    }
+  }
+  return +maxDigit;
 }
 
-document.writeln(`<p>1. Max digit from 372261 is: ${getMaxDigit(372261)} </p>`);
+document.writeln(`<p>1. Max digit from 532961 is: ${getMaxDigit(532961)} </p>`);
 
 // ex.2 Degree of a number
 function numberDegree(number, degree) {
   let answer = number;
-  if (degree === 1) {
-    answer = number;
-  } else {
-    for (let i = 1; i < degree; i++) {
-      answer = number * answer;
-    }
+  if (degree === 0) {
+    return 1
+  }
+  for (let i = 1; i < degree; i++) {
+    answer *= number;
   }
   return answer;
 }
@@ -45,12 +60,12 @@ ${getRandomNumber(0, 68)}</p>`);
 
 //ex.6 Count letter in a word
 function countLetter(letter, word) {
-  const a = String(letter);
-  const b = String(word).toLowerCase();
+  const userLetter = letter;
+  const userWord = word.toLowerCase();
   let count = 0;
 
-  for (let i = 0; i <= b.length; i++) {
-    if (b[i] === a) {
+  for (let i = 0; i <= userWord.length; i++) {
+    if (userWord[i] === userLetter) {
       count++;
     }
   }
@@ -63,13 +78,13 @@ document.writeln(`<p>6. Count letters "a" in a word "Асталависта, н�
 
 // ex.7 Convert $ to UAH and vice-versa
 function convertCurrency(value) {
-  value = value.toLowerCase();
+  const valueLowerCase = value.toLowerCase();
   const ratio = 27.65;
-  if (value.endsWith("$")) {
-    return Number((parseFloat(value) * ratio).toFixed(2));
+  if (valueLowerCase.endsWith("$")) {
+    return Number((parseFloat(valueLowerCase) * ratio).toFixed(2));
   }
-  if (value.endsWith("uah")) {
-    return Number((parseFloat(value) / ratio).toFixed(2));
+  if (valueLowerCase.endsWith("uah")) {
+    return Number((parseFloat(valueLowerCase) / ratio).toFixed(2));
   }
   return `We don't convert currency other than $ or UAH`;
 }
