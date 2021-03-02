@@ -64,12 +64,12 @@ function getRandomMark(min, max) {
   return Math.ceil(Math.random() * (max - min) + min);
 }
 
-//  у меня в функции исходный массив не мутирует,
-// даже без использование ...spread. тут нету ошибки?
+// тут я присвоила массивы из аргументов без помощи [...array], 
+// и исходный массив не мутирует все равно. (так и надо чтоб было)
 
 function ratingofPairs(studentsArray, themesArray) {
-  let studentsWaiting = [...studentsArray];
-  let themesGiven = [...themesArray];
+  let studentsWaiting = studentsArray;
+  let themesGiven = themesArray;
   let themesAssigned = [];
   for (let i = 0; i < themesGiven.length; i++) {
     themesAssigned.push([
@@ -82,3 +82,4 @@ function ratingofPairs(studentsArray, themesArray) {
 }
 const pairsRated = ratingofPairs(gbPairs, themes);
 console.log(pairsRated);
+console.log(students)
