@@ -53,7 +53,7 @@ document.writeln(`<p>4. Salary without taxes: ${taxRemoval(1000, 19.5)}</p>`);
 
 //ex.5 Random number from range
 function getRandomNumber(min, max) {
-  return Math.ceil(Math.random() * (max - min) + min);
+  return Math.round(Math.random() * (max - min) + min);
 }
 document.writeln(`<p>5. Random number from range: 
 ${getRandomNumber(0, 68)}</p>`);

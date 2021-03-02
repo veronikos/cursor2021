@@ -61,7 +61,7 @@ console.log(marksToStudents);
 
 // Rating of student pairs projects
 function getRandomMark(min, max) {
-  return Math.ceil(Math.random() * (max - min) + min);
+  return Math.round(Math.random() * (max - min) + min);
 }
 
 // тут я присвоила массивы из аргументов без помощи [...array], 
