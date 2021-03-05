@@ -38,7 +38,7 @@ function getMedian(...numbers) {
   const myNumbers = [...numbers];
   let myIntegerNumbers = [];
   let countMedian = null;
-    function callBack(a, b) {
+  function callBack(a, b) {
     return a - b;
   }
 
@@ -61,8 +61,37 @@ function getMedian(...numbers) {
   }
   return countMedian;
 }
+console.log(`ex.4:`, getMedian(3, 0.5, 5, 6.7));
 
-console.log(` ex.4:`, getMedian(3, 0.5, 5, 6.7));
+// ex.5
+function filterEvenNumbers(...numbers) {
+  const numbersArray = [...numbers];
+  let positiveNumbers = numbersArray.filter(function (number) {
+    return number % 2 === 0;
+  });
+  return positiveNumbers;
+}
+console.log(` ex.5:`, filterEvenNumbers(2, 100, -0.9, 3788, -5, 6.7));
+
+// ex.6
+function countPositiveNumbers(...numbers) {
+  const numbersArray = [...numbers];
+  let positiveNumbers = numbersArray.filter(function (number) {
+    return number > 0;
+  });
+  return positiveNumbers.length;
+}
+console.log(`ex.6:`, countPositiveNumbers(-3, 5, 7, 100, -6, -5, 6));
+
+// ex. 7
+function getDividedByFive(...numbers) {
+  const numbersArray = [...numbers];
+  let dividedByFive = numbersArray.filter(function (number) {
+    return number % 5 === 0;
+  });
+  return dividedByFive;
+}
+console.log(` ex.7:`, getDividedByFive(-3, 5, 45, 500, 5915, 7, 100, -6, -5, 6));
 
 // Ex. 8
 function replaceBadWords(comment) {
@@ -77,7 +106,7 @@ function replaceBadWords(comment) {
 // for example = "bad".length * "*" => "***"
 // "fuck".length * "*" => "****"
 
-console.log(` ex.8:`, replaceBadWords("This fucking tree is a complete shit!"));
+console.log(`ex.8:`, replaceBadWords("This fucking callBack is a complete shit!"));
 
 // 9.  function divide string by three letters
 function divideByThree(enterString) {
@@ -91,27 +120,27 @@ function divideByThree(enterString) {
 console.log(` ex.9:`, divideByThree("LOVE me tender"));
 
 //!!!!!! ex. 10: Generate unique reshuffle of letters
-function generateCombinations(word) {
-  const userWord = word;
-  if (userWord.length > 10) {
-    return "Word cannot exceed 10 letters";
-  }
-  if (userWord.length <= 1) {
-    return userWord;
-  }
+// function generateCombinations(word) {
+//   const userWord = word;
+//   if (userWord.length > 10) {
+//     return "Word cannot exceed 10 letters";
+//   }
+//   if (userWord.length <= 1) {
+//     return userWord;
+//   }
 
-  let shuffledLetters = [];
+//   let shuffledLetters = [];
 
-  for (let i = 0; i < userWord.length; i++) {
-    let tmp = userWord.substr(0, i) + userWord.substr(i + 1);
-    console.log(tmp);
-    let prefix = userWord.substr(i, 1);
-    console.log(prefix);
-    let shuffleVariant = tmp + prefix;
-    console.log(shuffleVariant);
-    shuffledLetters[i] = shuffleVariant;
-  }
-  return shuffledLetters;
-}
+//   for (let i = 0; i < userWord.length; i++) {
+//     let tmp = userWord.substr(0, i) + userWord.substr(i + 1);
+//     console.log(tmp);
+//     let prefix = userWord.substr(i, 1);
+//     console.log(prefix);
+//     let shuffleVariant = tmp + prefix;
+//     console.log(shuffleVariant);
+//     shuffledLetters[i] = shuffleVariant;
+//   }
+//   return shuffledLetters;
+// }
 
-console.log(`Doesn't work! ex.10:`, generateCombinations("467"));
+// console.log(`Doesn't work! ex.10:`, generateCombinations("467"));
