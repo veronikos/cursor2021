@@ -13,18 +13,6 @@ function getRandomArray(length, min, max) {
 
 console.log(` ex.1:`, getRandomArray(9, 1, 25));
 
-// ex. 2 
-// function getModa(...numbers) {
-//   const myNumbers = [...numbers];
-//   for (let i = 0; i < myNumbers.length; i++) {
-//     if (!Number.isInteger(myNumbers[i])) {
-//       countNaN++;
-//       continue;
-//     }
-//     sumNumbers += myNumbers[i];
-//   }
-// }
-
 // ex. 3
 function getAverage(...numbers) {
   const myNumbers = [...numbers];
@@ -44,6 +32,30 @@ console.log(
   ` ex.3: getAverage(15, 25.2, 35, 78.4, 5, 6, 10): `,
   getAverage(15, 25.2, 35, 78.4, 5, 6, 10)
 );
+
+// ex. 4
+function getMedian(...numbers) {
+  const myNumbers = [...numbers];
+  let myIntegerNumbers = [];
+  let countMedian = null;
+    function callBack(a, b) {
+    return a - b;
+  }
+
+  let sortedNumbers = myNumbers.sort(callBack);
+  if (sortedNumbers.length % 2 === 1) {
+    let medianIndex = Number((sortedNumbers.length / 2).toFixed()) - 1;
+    countMedian = sortedNumbers[medianIndex];
+  } else {
+    let secondMedianIndex = Number((sortedNumbers.length / 2).toFixed());
+    let firstMedianIndex = secondMedianIndex - 1;
+    countMedian =
+      (sortedNumbers[secondMedianIndex] + sortedNumbers[firstMedianIndex]) / 2;
+  }
+  return countMedian;
+}
+
+console.log(` ex.4:`, getMedian(3));
 
 // Ex. 8
 function replaceBadWords(comment) {
@@ -96,7 +108,3 @@ function generateCombinations(word) {
 }
 
 console.log(`Doesn't work! ex.10:`, generateCombinations("467"));
-
-
-
-
