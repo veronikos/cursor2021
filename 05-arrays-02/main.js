@@ -42,7 +42,14 @@ function getMedian(...numbers) {
     return a - b;
   }
 
-  let sortedNumbers = myNumbers.sort(callBack);
+  for (let i = 0; i < myNumbers.length; i++) {
+    if (!Number.isInteger(myNumbers[i])) {
+      continue;
+    }
+    myIntegerNumbers.push(myNumbers[i]);
+  }
+
+  let sortedNumbers = myIntegerNumbers.sort(callBack);
   if (sortedNumbers.length % 2 === 1) {
     let medianIndex = Number((sortedNumbers.length / 2).toFixed()) - 1;
     countMedian = sortedNumbers[medianIndex];
@@ -55,7 +62,7 @@ function getMedian(...numbers) {
   return countMedian;
 }
 
-console.log(` ex.4:`, getMedian(3));
+console.log(` ex.4:`, getMedian(3, 0.5, 5, 6.7));
 
 // Ex. 8
 function replaceBadWords(comment) {
