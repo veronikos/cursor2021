@@ -66,12 +66,12 @@ console.log(`ex.4:`, getMedian(3, 0.5, 5, 6.7));
 // ex.5
 function filterEvenNumbers(...numbers) {
   const numbersArray = [...numbers];
-  let positiveNumbers = numbersArray.filter(function (number) {
-    return number % 2 === 0;
+  let evenNumbers = numbersArray.filter(function (number) {
+    return number % 2 !== 0;
   });
-  return positiveNumbers;
+  return evenNumbers;
 }
-console.log(` ex.5:`, filterEvenNumbers(2, 100, -0.9, 3788, -5, 6.7));
+console.log(` ex.5:`, filterEvenNumbers(2, 187, -0.9, 3789, -5, ));
 
 // ex.6
 function countPositiveNumbers(...numbers) {
