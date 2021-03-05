@@ -16,16 +16,24 @@ console.log(` ex.1:`, getRandomArray(9, 1, 25));
 // ex. 3
 function getAverage(...numbers) {
   const myNumbers = [...numbers];
+  let myIntegerNumbers = [];
   let sumNumbers = null;
   let countNaN = 0;
+  
+
+  //  переписать при помощи filter
   for (let i = 0; i < myNumbers.length; i++) {
     if (!Number.isInteger(myNumbers[i])) {
-      countNaN++;
       continue;
     }
-    sumNumbers += myNumbers[i];
+    myIntegerNumbers.push(myNumbers[i]);
   }
-  return sumNumbers / (myNumbers.length - countNaN);
+  
+  //  переписать при помощи reduce 
+  for (let i = 0; i < myIntegerNumbers.length; i++) {
+    sumNumbers += myIntegerNumbers[i];
+  }
+  return sumNumbers / myIntegerNumbers.length;
 }
 
 console.log(
@@ -38,10 +46,10 @@ function getMedian(...numbers) {
   const myNumbers = [...numbers];
   let myIntegerNumbers = [];
   let countMedian = null;
-  function callBack(a, b) {
-    return a - b;
-  }
-
+  // function callBack(a, b) {
+  //   return a - b;
+  // }
+  
   for (let i = 0; i < myNumbers.length; i++) {
     if (!Number.isInteger(myNumbers[i])) {
       continue;
@@ -49,7 +57,7 @@ function getMedian(...numbers) {
     myIntegerNumbers.push(myNumbers[i]);
   }
 
-  let sortedNumbers = myIntegerNumbers.sort(callBack);
+  let sortedNumbers = myIntegerNumbers.sort((a, b) => a - b);
   if (sortedNumbers.length % 2 === 1) {
     let medianIndex = Number((sortedNumbers.length / 2).toFixed()) - 1;
     countMedian = sortedNumbers[medianIndex];
