@@ -14,31 +14,29 @@ function getRandomArray(length, min, max) {
 console.log(` ex.1:`, getRandomArray(9, 1, 25));
 
 // ex. 3
-function getAverage(...numbers) {
+function getAverage(numbers) {
   const myNumbers = [...numbers];
   let myIntegerNumbers = [];
-  let sumNumbers = null;
-  let countNaN = 0;
-  
 
-  //  переписать при помощи filter
-  for (let i = 0; i < myNumbers.length; i++) {
-    if (!Number.isInteger(myNumbers[i])) {
-      continue;
+  function isIntegerCallback(number) {
+    if (!Number.isInteger(number)) {
+      return false;
     }
-    myIntegerNumbers.push(myNumbers[i]);
+    return true;
   }
-  
-  //  переписать при помощи reduce 
-  for (let i = 0; i < myIntegerNumbers.length; i++) {
-    sumNumbers += myIntegerNumbers[i];
-  }
-  return sumNumbers / myIntegerNumbers.length;
+
+  myIntegerNumbers = myNumbers.filter(isIntegerCallback);
+
+  const reducerCallback = (accumulator, currentValue) =>
+    accumulator + currentValue;
+  myIntegerNumbers.reduce(reducerCallback);
+
+  return myIntegerNumbers.reduce(reducerCallback) / myIntegerNumbers.length;
 }
 
 console.log(
   ` ex.3: getAverage(15, 25.2, 35, 78.4, 5, 6, 10): `,
-  getAverage(15, 25.2, 35, 78.4, 5, 6, 10)
+  getAverage([15, 25.2, 35, 78.4, 5, 6, 10])
 );
 
 // ex. 4
@@ -46,10 +44,7 @@ function getMedian(...numbers) {
   const myNumbers = [...numbers];
   let myIntegerNumbers = [];
   let countMedian = null;
-  // function callBack(a, b) {
-  //   return a - b;
-  // }
-  
+
   for (let i = 0; i < myNumbers.length; i++) {
     if (!Number.isInteger(myNumbers[i])) {
       continue;
@@ -79,7 +74,7 @@ function filterEvenNumbers(...numbers) {
   });
   return evenNumbers;
 }
-console.log(` ex.5:`, filterEvenNumbers(2, 187, -0.9, 3789, -5, ));
+console.log(` ex.5:`, filterEvenNumbers(2, 187, -0.9, 3789, -5));
 
 // ex.6
 function countPositiveNumbers(...numbers) {
@@ -99,7 +94,10 @@ function getDividedByFive(...numbers) {
   });
   return dividedByFive;
 }
-console.log(` ex.7:`, getDividedByFive(-3, 5, 45, 500, 5915, 7, 100, -6, -5, 6));
+console.log(
+  ` ex.7:`,
+  getDividedByFive(-3, 5, 45, 500, 5915, 7, 100, -6, -5, 6)
+);
 
 // Ex. 8
 function replaceBadWords(comment) {
@@ -114,7 +112,10 @@ function replaceBadWords(comment) {
 // for example = "bad".length * "*" => "***"
 // "fuck".length * "*" => "****"
 
-console.log(`ex.8:`, replaceBadWords("This fucking callBack is a complete shit!"));
+console.log(
+  `ex.8:`,
+  replaceBadWords("This fucking callBack is a complete shit!")
+);
 
 // 9.  function divide string by three letters
 function divideByThree(enterString) {
