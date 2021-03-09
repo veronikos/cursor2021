@@ -41,42 +41,46 @@ function getSubjects(studentsObject) {
 }
 console.log(getSubjects(students[0]));
 
+// global reducer
+const reducerSumAllElements = (accumulator, currentValue) =>
+  accumulator + currentValue;
+
 // 2. returns average mark of a student
 // getAverage
-function getAverage(...numbers) {
-    const myNumbers = [...numbers];
-    let myIntegerNumbers = [];
-    let sumNumbers = null; 
-  
-    //  переписать при помощи filter
-    for (let i = 0; i < myNumbers.length; i++) {
-      if (!Number.isInteger(myNumbers[i])) {
-        continue;
-      }
-      myIntegerNumbers.push(myNumbers[i]);
+function getAverage(numbers) {
+  const myNumbers = [...numbers];
+  let myIntegerNumbers = [];
+
+  function isIntegerCallback(number) {
+    if (!Number.isInteger(number)) {
+      return false;
     }
-    
-    //  переписать при помощи reduce 
-    for (let i = 0; i < myIntegerNumbers.length; i++) {
-      sumNumbers += myIntegerNumbers[i];
-    }
-    return sumNumbers / myIntegerNumbers.length;
+    return true;
   }
 
-// function getAverageMark(studentsObject) {
-//     const keys = Object.keys(studentsObject.subjects);
-//     let averages = 0;
-    
-//     // Object.keys(studentsObject).forEach( function(key) {
-//     //     console.log(studentsObject[key]) // baz
-//     //   })
-//     // .forEach( function (value) {
-//     //     averages += getAverageMark(value)
-//     // })
-//     return "Hi"
-// }
+  myIntegerNumbers = myNumbers.filter(isIntegerCallback);
 
-// console.log(getAverageMark(students[0]));
+  const reducerCallback = (accumulator, currentValue) =>
+    accumulator + currentValue;
+  myIntegerNumbers.reduce(reducerCallback);
 
-// console.log(getAverage(students[0].subjects.math))
-console.log(getAverage(1, 2, 3, 4))
+  return myIntegerNumbers.reduce(reducerCallback) / myIntegerNumbers.length;
+}
+
+function getAverageMark(studentsObject) {
+  const keys = Object.keys(studentsObject.subjects);
+
+  let sumOfAllMarks = 0;
+  for (let i = 0; i < keys.length; i++) {
+    sumOfAllMarks += (studentsObject.subjects[keys[i]].reduce(reducerSumAllElements) / studentsObject.subjects[keys[i]].length);
+  }
+
+  return Number((sumOfAllMarks / keys.length).toFixed(2));
+}
+
+console.log(`getAverageMark `, getAverageMark(students[1]));
+console.log(students[1].subjects)
+
+// 1) походу надо считать сумму всех оценок поделить на количесво всех оценок. у них в примере ответ 
+// не 3.8 а 3.79
+// 2) добавить average mark как еще один элемент массива
