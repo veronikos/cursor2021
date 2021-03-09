@@ -78,9 +78,7 @@ function getAverageMark(studentsObject) {
   return Number((sumOfAllMarks / keys.length).toFixed(2));
 }
 
-console.log(`getAverageMark `, getAverageMark(students[1]));
-console.log(students[1].subjects)
-
+console.log(`getAverageMark `, getAverageMark(students[0]));
 // 1) походу надо считать сумму всех оценок поделить на количесво всех оценок. у них в примере ответ 
 // не 3.8 а 3.79
 // 2) добавить average mark как еще один элемент массива
