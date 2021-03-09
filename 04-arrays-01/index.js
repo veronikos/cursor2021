@@ -7,11 +7,10 @@ const themes = [
 const marks = [4, 5, 5, 3, 4, 5];
 
 // divide into groups girl+boy
-function girlsBoysPairs(arr) {
-  let studentsArray = [...arr];
-  let girls = [];
-  let boys = [];
-  let pairs = [];
+function girlsBoysPairs(studentsArray) {
+  const girls = [];
+  const boys = [];
+  const pairs = [];
   for (let i = 0; i < studentsArray.length; i++) {
     if (studentsArray[i].endsWith("а")) {
       girls.push(studentsArray[i]);
@@ -26,32 +25,26 @@ function girlsBoysPairs(arr) {
   return pairs;
 }
 
-const gbPairs = girlsBoysPairs(students);
-
-console.log(gbPairs);
+const pairsGirlPlusBoy = girlsBoysPairs(students);
+console.log(pairsGirlPlusBoy);
 
 //  combine pairs and themes
-function studentsThemes(studentsArray, themesRandom) {
-  let themesArray = [...themesRandom];
-  let pairsStudents = girlsBoysPairs(studentsArray);
-  let themesAssignment = [];
-
+function studentsThemes(studentsArray, themesArray) {
+  const themesAssignment = [];
   for (let i = 0; i < themesArray.length; i++) {
-    themesAssignment.push([pairsStudents[i].join(" i "), themesArray[i]]);
+    themesAssignment.push([studentsArray[i].join(" i "), themesArray[i]]);
   }
   return themesAssignment;
 }
 
-const pairsThemesCombined = studentsThemes(students, themes);
+const pairsThemesCombined = studentsThemes(pairsGirlPlusBoy, themes);
 console.log(pairsThemesCombined);
 
 // Assignment of marks to students
-function studentMarks(studentsArray, marksArray) {
-  let studentsWaiting = [...studentsArray];
-  let marksGiven = [...marksArray];
-  let marksAssigned = [];
+function studentMarks(studentsWaitingformarks, marksGiven) {
+  const marksAssigned = [];
   for (let i = 0; i < marksGiven.length; i++) {
-    marksAssigned.push([studentsWaiting[i], marksGiven[i]]);
+    marksAssigned.push([studentsWaitingformarks[i], marksGiven[i]]);
   }
   return marksAssigned;
 }
@@ -64,22 +57,17 @@ function getRandomMark(min, max) {
   return Math.round(Math.random() * (max - min) + min);
 }
 
-// тут я присвоила массивы из аргументов без помощи [...array], 
-// и исходный массив не мутирует все равно. (так и надо чтоб было)
 
-function ratingofPairs(studentsArray, themesArray) {
-  let studentsWaiting = studentsArray;
-  let themesGiven = themesArray;
-  let themesAssigned = [];
+function ratingofPairs(studentsWaitingForMarks, themesGiven) {
+  const themesAssigned = [];
   for (let i = 0; i < themesGiven.length; i++) {
     themesAssigned.push([
-      studentsWaiting[i].join(" i "),
+      studentsWaitingForMarks[i].join(" i "),
       themesGiven[i],
       getRandomMark(1, 5),
     ]);
   }
   return themesAssigned;
 }
-const pairsRated = ratingofPairs(gbPairs, themes);
-console.log(pairsRated);
-console.log(students)
+const pairsRated = ratingofPairs(pairsGirlPlusBoy, themes);
+console.log(pairsRated)
