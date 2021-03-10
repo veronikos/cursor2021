@@ -41,44 +41,91 @@ function getSubjects(studentsObject) {
 }
 console.log(getSubjects(students[0]));
 
-// global reducer
-const reducerSumAllElements = (accumulator, currentValue) =>
-  accumulator + currentValue;
-
 // 2. returns average mark of a student
-// getAverage
-function getAverage(numbers) {
-  const myNumbers = [...numbers];
-  let myIntegerNumbers = [];
-
-  function isIntegerCallback(number) {
-    if (!Number.isInteger(number)) {
-      return false;
-    }
-    return true;
-  }
-
-  myIntegerNumbers = myNumbers.filter(isIntegerCallback);
-
-  const reducerCallback = (accumulator, currentValue) =>
-    accumulator + currentValue;
-  myIntegerNumbers.reduce(reducerCallback);
-
-  return myIntegerNumbers.reduce(reducerCallback) / myIntegerNumbers.length;
-}
-
 function getAverageMark(studentsObject) {
   const keys = Object.keys(studentsObject.subjects);
+  let sumOfAllMarks = [];
+  const isIntegerCallback = (number) =>
+    Number.isInteger(number) ? true : false;
 
-  let sumOfAllMarks = 0;
   for (let i = 0; i < keys.length; i++) {
-    sumOfAllMarks += (studentsObject.subjects[keys[i]].reduce(reducerSumAllElements) / studentsObject.subjects[keys[i]].length);
+    sumOfAllMarks = sumOfAllMarks.concat(
+      studentsObject.subjects[keys[i]].filter(isIntegerCallback)
+    );
   }
 
-  return Number((sumOfAllMarks / keys.length).toFixed(2));
+  const reducer = (acc, item) => {
+    return acc + item;
+  };
+
+  return Number((sumOfAllMarks.reduce(reducer) / sumOfAllMarks.length).toFixed(2));
 }
 
-console.log(`getAverageMark `, getAverageMark(students[0]));
-// 1) походу надо считать сумму всех оценок поделить на количесво всех оценок. у них в примере ответ 
-// не 3.8 а 3.79
-// 2) добавить average mark как еще один элемент массива
+// 2.1 add average mark as additional object element
+for (let i = 0; i < students.length; i++) {
+  students[i].average_mark = getAverageMark(students[i]);
+}
+
+console.log(`getAverageMark of student 0 - Tanya`, students[0].average_mark);
+console.log(`getAverageMark of student 1 - Victor`, students[1].average_mark);
+console.log(`getAverageMark of student 2 - Anton`, students[2].average_mark);
+
+// ex. 3
+function getStudentInfo(studentsObject) {
+  const studentInfo = {};
+  studentInfo.course = studentsObject.course;
+  studentInfo.name = studentsObject.name;
+  studentInfo.averageMark = studentsObject.average_mark;
+
+  return studentInfo;
+}
+
+console.log(`Short student info:`, getStudentInfo(students[2]));
+
+// ex. 4 get students names sorted by alphabet
+function getStudentsNames(studentsObject) {
+  let studentsNames = [];
+  for (let i = 0; i < studentsObject.length; i++) {
+    studentsNames.push(studentsObject[i].name);
+  }
+  return studentsNames.sort();
+}
+
+console.log(`Students names sorted:`, getStudentsNames(students));
+
+// ex. 5 best student based on average mark
+function getBestStudent(studentsObject) {
+  const marksArray = [];
+
+  for (let i = 0; i < studentsObject.length; i++) {
+    marksArray.push(studentsObject[i].average_mark);
+  }
+
+  return studentsObject[marksArray.indexOf(Math.max(...marksArray))].name;
+}
+
+console.log(`Best student based on average mark:`, getBestStudent(students));
+
+// ex. 6 calculate letters in a word
+function calculateWordLetters(word) {
+  function countLetter(letter, word) {
+    const userLetter = letter;
+    const userWord = word.toLowerCase();
+    let count = 0;
+
+    for (let i = 0; i <= userWord.length; i++) {
+      if (userWord[i] === userLetter) {
+        count++;
+      }
+    }
+    return count;
+  }
+
+  const lettersObject = {};
+  for (let i = 0; i < word.length; i++) {
+    lettersObject[word[i]] = countLetter(word[i], word);
+  }
+  return lettersObject;
+}
+
+console.log(`Counted letters:`, calculateWordLetters("text"));
