@@ -1,3 +1,7 @@
+function getRandomNumber(min, max) {
+    return Math.round(Math.random() * (max - min) + min);
+  }
+
 const ukraine = { tax: 0.195, middleSalary: 1789, vacancies: 11476 };
 const latvia = { tax: 0.25, middleSalary: 1586, vacancies: 3921 };
 const lithuania = { tax: 0.15, middleSalary: 1509, vacancies: 1114 };
@@ -25,3 +29,18 @@ function getTotalTaxes() {
 console.log(`Total IT-tax rate in Ukraine:`, getTotalTaxes.call(ukraine))
 console.log(`Total IT-tax rate in Latvia:`, getTotalTaxes.call(latvia))
 console.log(`Total IT-tax rate in Lithuania:`, getTotalTaxes.call(lithuania))
+
+// function getMySalary() {
+//     const salary = getRandomNumber(1500, 2000);
+//     const tax = salary * this.tax;
+//     console.log(this.tax)
+//     const object = {
+//         salary: salary,
+//         taxes: tax,
+//         profit: salary - tax
+//     }
+
+//     return object
+// }
+
+// console.log(getMySalary(ukraine))
