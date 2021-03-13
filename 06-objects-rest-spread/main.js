@@ -47,28 +47,28 @@ console.log(getSubjects(students[0]));
 function getAverageMark(studentsObject) {
   const keys = Object.keys(studentsObject.subjects);
   let sumOfAllMarks = [];
-  const isIntegerCallback = (number) =>
-    Number.isInteger(number) ? true : false;
 
   for (let i = 0; i < keys.length; i++) {
     sumOfAllMarks = sumOfAllMarks.concat(
-      studentsObject.subjects[keys[i]].filter(isIntegerCallback)
+      studentsObject.subjects[keys[i]].filter(number =>
+      Number.isInteger(number) ? true : false)
     );
   }
 
-  const reducer = (acc, item) => {
-    return acc + item;
-  };
+  // написала Форичом, работает, но выглядит очень непонятно.
+
+    // keys.forEach(key => sumOfAllMarks = sumOfAllMarks.concat(
+    // studentsObject.subjects[key].filter(number =>
+    //   Number.isInteger(number) ? true : false)
+    // ))
 
   return Number(
-    (sumOfAllMarks.reduce(reducer) / sumOfAllMarks.length).toFixed(2)
+    (sumOfAllMarks.reduce((acc, item) => acc + item) / sumOfAllMarks.length).toFixed(2)
   );
 }
 
 // 2.1 add average mark as additional object element
-for (let i = 0; i < students.length; i++) {
-  students[i].average_mark = getAverageMark(students[i]);
-}
+students.forEach(student => student.average_mark = getAverageMark(student))
 
 console.log(`getAverageMark of student 0 - Tanya`, students[0].average_mark);
 console.log(`getAverageMark of student 1 - Victor`, students[1].average_mark);
@@ -89,11 +89,7 @@ console.log(`Short student info:`, getStudentInfo(students[2]));
 
 // ex. 4 get students names sorted by alphabet
 function getStudentsNames(studentsObject) {
-  let studentsNames = [];
-
-  for (let i = 0; i < studentsObject.length; i++) {
-    studentsNames.push(studentsObject[i].name);
-  }
+  const studentsNames = studentsObject.map(student => student.name);
 
   return studentsNames.sort();
 }
@@ -102,11 +98,7 @@ console.log(`Students names sorted:`, getStudentsNames(students));
 
 // ex. 5 best student based on average mark
 function getBestStudent(studentsObject) {
-  const marksArray = [];
-
-  for (let i = 0; i < studentsObject.length; i++) {
-    marksArray.push(studentsObject[i].average_mark);
-  }
+  const marksArray = studentsObject.map(student => student.average_mark)
 
   return studentsObject[marksArray.indexOf(Math.max(...marksArray))].name;
 }
