@@ -32,13 +32,13 @@ const students = [
 function getSubjects(studentsObject) {
   const subjectsArray = Object.keys(studentsObject.subjects);
   const subjectsCorrected = [];
-  
+
   subjectsArray.forEach(function (value) {
     subjectsCorrected.push(
       value[0].toUpperCase() + value.slice(1).toLowerCase().replace("_", " ")
     );
   });
-  
+
   return subjectsCorrected;
 }
 console.log(getSubjects(students[0]));
@@ -60,7 +60,9 @@ function getAverageMark(studentsObject) {
     return acc + item;
   };
 
-  return Number((sumOfAllMarks.reduce(reducer) / sumOfAllMarks.length).toFixed(2));
+  return Number(
+    (sumOfAllMarks.reduce(reducer) / sumOfAllMarks.length).toFixed(2)
+  );
 }
 
 // 2.1 add average mark as additional object element
@@ -74,10 +76,11 @@ console.log(`getAverageMark of student 2 - Anton`, students[2].average_mark);
 
 // ex. 3
 function getStudentInfo(studentsObject) {
-  const studentInfo = {};
-  studentInfo.course = studentsObject.course;
-  studentInfo.name = studentsObject.name;
-  studentInfo.averageMark = studentsObject.average_mark;
+  const studentInfo = {
+    course: studentsObject.course,
+    name: studentsObject.name,
+    averageMark: studentsObject.average_mark,
+  };
 
   return studentInfo;
 }
@@ -87,11 +90,11 @@ console.log(`Short student info:`, getStudentInfo(students[2]));
 // ex. 4 get students names sorted by alphabet
 function getStudentsNames(studentsObject) {
   let studentsNames = [];
-  
+
   for (let i = 0; i < studentsObject.length; i++) {
     studentsNames.push(studentsObject[i].name);
   }
-  
+
   return studentsNames.sort();
 }
 
@@ -113,23 +116,22 @@ console.log(`Best student based on average mark:`, getBestStudent(students));
 // ex. 6 calculate letters in a word
 function calculateWordLetters(word) {
   const lettersObject = {};
-  
+
   for (let i = 0; i < word.length; i++) {
     lettersObject[word[i]] = countLetter(word[i], word);
   }
-  
+
   return lettersObject;
 }
 
 console.log(`Counted letters:`, calculateWordLetters("text"));
 
 function countLetter(letter, word) {
-  const userLetter = letter;
   const userWord = word.toLowerCase();
   let count = 0;
 
   for (let i = 0; i <= userWord.length; i++) {
-    if (userWord[i] === userLetter) {
+    if (userWord[i] === letter) {
       count++;
     }
   }
