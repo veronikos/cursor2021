@@ -10,9 +10,11 @@ function getMyTaxes(salary) {
     return this.tax * salary
 }
 
-console.log(`Tax from 100 in Ukraine:`, getMyTaxes.call(ukraine, 100))
-console.log(`Tax from 100 in Latvia:`, getMyTaxes.call(latvia, 100))
-console.log(`Tax from 100 in Lithuania:`, getMyTaxes.call(lithuania, 100))
+console.log(`
+Tax from 100 in Ukraine: ${getMyTaxes.call(ukraine, 100)}
+Tax from 100 in Latvia: ${getMyTaxes.call(latvia, 100)}
+Tax from 100 in Lithuania: ${getMyTaxes.call(lithuania, 100)}
+`)
 
 function getMiddleTaxes() {
     return this.tax * this.middleSalary
@@ -30,17 +32,16 @@ console.log(`Total IT-tax rate in Ukraine:`, getTotalTaxes.call(ukraine))
 console.log(`Total IT-tax rate in Latvia:`, getTotalTaxes.call(latvia))
 console.log(`Total IT-tax rate in Lithuania:`, getTotalTaxes.call(lithuania))
 
-// function getMySalary() {
-//     const salary = getRandomNumber(1500, 2000);
-//     const tax = salary * this.tax;
-//     console.log(this.tax)
-//     const object = {
-//         salary: salary,
-//         taxes: tax,
-//         profit: salary - tax
-//     }
+function getMySalary() {
+    const salary = getRandomNumber(1500, 2000);
+    const taxInCountry = this.tax * salary
+    const object = {
+        salary: salary,
+        taxes: taxInCountry,
+        profit: salary - taxInCountry
+    }
 
-//     return object
-// }
+    return object
+}
 
-// console.log(getMySalary(ukraine))
+setInterval(`console.log(getMySalary.call(ukraine))`, 10000)
