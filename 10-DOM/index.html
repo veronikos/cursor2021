@@ -9,72 +9,71 @@
 		h1 {
 			font-size: 20px;
 			padding: 10px;
+            margin-bottom: 0;
 			color: rgb(118, 157, 158);
 		}
+
 		body {
 			background-color: #e6f2de;
 		}
-        #flex-container {
+
+        .flex_container {
             display: flex;
+            visibility: hidden;
         }
+
         .square {
-            background-color: #ffd700;
             width: 50px;
             height: 50px;
             flex-direction: row;
+        }
+
+        input {
+            padding: 10px;
+            margin-bottom: 10px;
+            width: max-content;
         }
 	</style>
 </head>
 <body>
 	<h1>10 Homework | DOM: by Veronika.</h1>
-    <div id="flex-container">
+    <input type="button" class="generate" value="Generate Blocks">
+    <input type="button" class="hide"  value="Hide Blocks">
+    <div class="flex_container">
         <div class="square"></div> 
-        <div class="square"></div>
         <div class="square"></div>
         <div class="square"></div>
         <div class="square"></div>
         <div class="square"></div>
     </div>
-    <div id="flex-container">
+    <div class="flex_container">
         <div class="square"></div> 
-        <div class="square"></div>
         <div class="square"></div>
         <div class="square"></div>
         <div class="square"></div>
         <div class="square"></div>
     </div>
-    <div id="flex-container">
+    <div class="flex_container">
         <div class="square"></div> 
-        <div class="square"></div>
         <div class="square"></div>
         <div class="square"></div>
         <div class="square"></div>
         <div class="square"></div>
     </div>
-    <div id="flex-container">
+    <div class="flex_container">
         <div class="square"></div> 
-        <div class="square"></div>
         <div class="square"></div>
         <div class="square"></div>
         <div class="square"></div>
         <div class="square"></div>
     </div>
-    <div id="flex-container">
+    <div class="flex_container">
         <div class="square"></div> 
         <div class="square"></div>
         <div class="square"></div>
         <div class="square"></div>
         <div class="square"></div>
-        <div class="square"></div>
-    </div>
-    <div id="flex-container">
-        <div class="square"></div> 
-        <div class="square"></div>
-        <div class="square"></div>
-        <div class="square"></div>
-        <div class="square"></div>
-        <div class="square"></div>
-    </div>  
+    </div> 
 
 <script defer src='main.js'></script>    
 </body>

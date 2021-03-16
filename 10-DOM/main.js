@@ -1,14 +1,36 @@
 const squares = document.querySelectorAll(".square");
-console.log(squares)
 
-const colors = ['#ffd700', '#0028ff', '#ffd700', '#00ff0b', '#7100ff', '#ff00a7', '#ffd700', '#ff7100', '#0028ff']
+function getRandomRGB() {
+    let rgb = [];
+    for(let i = 0; i < 3; i++)
+    rgb.push(Math.floor(Math.random() * 255));
+    return rgb
+}
 
-squares[2].style.backgroundColor = "pink"
+function setColors() {
+    squares.forEach (function (square) {
+    square.style.backgroundColor = "rgb(" + getRandomRGB() + ")";
+})
+}
 
-setTimeout(squares.forEach(function (square) {
-    square.style.backgroundColor = colors[getRandomNumber(0, colors.length)];
-}))
+function generateBlocksInterval() {
+    setInterval(() => setColors(), 1000)
+}
 
-function getRandomNumber(min, max) {
-    return Math.round(Math.random() * (max - min) + min);
-  }
+const flex_containers = document.querySelectorAll(".flex_container");
+
+const generateBtn = document.querySelector(".generate");
+
+let clickedGenerateButton = null;
+generateBtn.onclick = function generateBlocks() {
+    setColors();
+    flex_containers.forEach (container => container.style.visibility = "visible");
+    clickedGenerateButton++;
+    if (clickedGenerateButton === 1) {
+        generateBlocksInterval();
+    }
+}
+
+document.querySelector(".hide").onclick = function hideBlocks() {
+    flex_containers.forEach (container => container.style.visibility = "hidden");
+}
