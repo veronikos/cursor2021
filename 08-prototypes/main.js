@@ -71,7 +71,9 @@ class BudgetStudent extends Student {
       }
     }
 
-    setInterval(() => this.getScholarship(), 30000)
+    setInterval(() => console.log(`This will appear each 30 sec 
+    ***
+    ${this.getScholarship()}`), 30000)
   }
 }
 
