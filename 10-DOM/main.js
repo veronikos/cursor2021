@@ -6,48 +6,49 @@ function getRandomRGB() {
   return "rgb(" + rgb + ")";
 }
 
-// c этим вариантом почти получилось. Только! когда делаются ряды по 5, между ними остаются промежутки
+// Create 25 squares and wrap them into 5 rows.
+
+function generateBlocks() {
+  const space = document.querySelector(".squareSpace");
+  space.style.cssText = "display: flex; flex-wrap: wrap";
+  space.innerHTML = "";
+
+  const row = document.createElement("div");
+  row.className = "row";
+  row.style.cssText =
+    "display: flex; flex-wrap: wrap; width: 250px";
+
+  space.appendChild(row);
+
+  for (let i = 0; i < 25; i++) {
+    const square = document.createElement("div");
+    square.className = "square";
+    square.style.cssText = "width: 50px; height: 50px; display: inline-block";
+    square.style.backgroundColor = getRandomRGB();
+    row.appendChild(square);
+  }
+}
+
+// ALternative generateBlocks(): Create 5 rows, 5 squares each.
 
 // function generateBlocks() {
 //   const space = document.querySelector(".squareSpace");
 //   space.innerHTML = "";
 
-//   const row = document.createElement("div");
-//   row.className = "row";
-//   row.style.display = "flex";
-//   row.style.cssText = "flex-wrap: wrap; height: auto; width: 250px; gap: 0"
+//   for (let i = 0; i < 5; i++) {
+//     const row = document.createElement("div");
+//     row.className = "row";
+//     space.appendChild(row);
 
-//   space.appendChild(row);
-
-//   for (let i = 0; i < 25; i++) {
-//     const square = document.createElement("div")
-//     square.className = "square"
-//     square.style.cssText = "width: 50px; height: 50px; display: inline-block"
-//     square.style.backgroundColor = getRandomRGB()
-//     row.appendChild(square)
+//     for (let i = 0; i < 5; i++) {
+//       const square = document.createElement("div")
+//       square.className = "square"
+//       square.style.cssText = "width: 50px; height: 50px; display: inline-block"
+//       square.style.backgroundColor = getRandomRGB()
+//       row.appendChild(square)
+//     }
 //   }
 // }
-
-
-function generateBlocks() {
-  const space = document.querySelector(".squareSpace");
-  space.innerHTML = "";
-
-  for (let i = 0; i < 5; i++) {
-    const row = document.createElement("div");
-    row.className = "row";
-    row.style.display = "flex";
-    space.appendChild(row);
-
-    for (let i = 0; i < 5; i++) {
-      const square = document.createElement("div")
-      square.className = "square"
-      square.style.cssText = "width: 50px; height: 50px; display: inline-block"
-      square.style.backgroundColor = getRandomRGB()
-      row.appendChild(square)
-    }
-  }
-}
 
 const generateBtn = document.querySelector(".generate");
 const shuffleBtn = document.querySelector(".shuffle");
@@ -81,7 +82,7 @@ shuffleBtn.onclick = function () {
   }
 };
 
-stopBtn.onclick = function() {
-	clearInterval(startShuffle);
+stopBtn.onclick = function () {
+  clearInterval(startShuffle);
   clickedShuffleButton = null;
-}
+};
