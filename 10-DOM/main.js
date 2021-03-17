@@ -10,14 +10,12 @@ function getRandomRGB() {
 
 function generateBlocks() {
   const space = document.querySelector(".squareSpace");
-  space.style.cssText = "display: flex; flex-wrap: wrap";
   space.innerHTML = "";
 
   const row = document.createElement("div");
   row.className = "row";
   row.style.cssText =
     "display: flex; flex-wrap: wrap; width: 250px";
-
   space.appendChild(row);
 
   for (let i = 0; i < 25; i++) {
