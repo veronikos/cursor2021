@@ -16,12 +16,16 @@
             height: 100%;
         }
 
+        header {
+            text-align: left;
+        }
+
         #wrapper {
             position: relative;
             min-height: 100%;
-            text-align: center;
-            background-image: url(../11-events/img/bruce-unsplash.jpg);
+            background: url(../11-events/img/bruce-unsplash.jpg) bottom center;
             background-size: cover;
+            text-align: center;
         }
 
         h1 {
@@ -47,10 +51,6 @@
             opacity: 0.5;
         }
 
-        .button:hover {
-            opacity: 1.0;
-        }
-
         .footer {
             position: absolute;
             left: 0;
@@ -63,7 +63,9 @@
 </head>
 <body>
     <div id="wrapper">
-        <h1>#11 Events homework by Veronika.</h1>
+        <header>
+            <h1>#11 Events homework by Veronika.</h1>
+        </header>
         <section class="buttons_group">
             <button class="button">A</button>
             <button class="button">S</button>
