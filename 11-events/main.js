@@ -27,7 +27,7 @@ for (let i = 0; i < buttonsArray.length; i++) {
     buttonsArray[i].addEventListener('click', playSound.bind(null, soundsArray[i]));
     const soundName = document.createElement('span')
     let soundNameCase = (soundsArray[i].id).replace(/([A-Z][a-z])/g, " $1")
-    soundName.innerHTML = `${(soundNameCase[0].toUpperCase() + soundNameCase.slice(1).toLowerCase())}`
+    soundName.innerHTML = `${(soundNameCase[0].toUpperCase() + soundNameCase.slice(1))}`
     buttonsArray[i].appendChild(soundName)
 }
 
