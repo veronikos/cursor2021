@@ -31,27 +31,22 @@ const students = [
 // 1. повертає список предметів для конкретного студента
 function getSubjects(studentsObject) {
   const subjectsArray = Object.keys(studentsObject.subjects);
-  const subjectsCorrected = [];
-
-  subjectsArray.forEach(function (value) {
-    subjectsCorrected.push(
-      value[0].toUpperCase() + value.slice(1).toLowerCase().replace("_", " ")
-    );
-  });
-
-  return subjectsCorrected;
+  return subjectsArray.map(
+    (subject) =>
+    subject[0].toUpperCase() + subject.slice(1).toLowerCase().replace("_", " ")
+  );
 }
 console.log(getSubjects(students[0]));
 
 // 2. returns average mark of a student
 function getAverageMark(studentsObject) {
-  const keys = Object.keys(studentsObject.subjects);
-  let sumOfAllMarks = [];
+  const subjectNames = Object.keys(studentsObject.subjects);
+  let allMarksArray = [];
 
-  for (let i = 0; i < keys.length; i++) {
-    sumOfAllMarks = sumOfAllMarks.concat(
-      studentsObject.subjects[keys[i]].filter(number =>
-      Number.isInteger(number) ? true : false)
+  for (let i = 0; i < subjectNames.length; i++) {
+    allMarksArray = allMarksArray.concat(
+      studentsObject.subjects[subjectNames[i]].filter(number =>
+      Number.isInteger(number))
     );
   }
 
@@ -59,11 +54,11 @@ function getAverageMark(studentsObject) {
 
     // keys.forEach(key => sumOfAllMarks = sumOfAllMarks.concat(
     // studentsObject.subjects[key].filter(number =>
-    //   Number.isInteger(number) ? true : false)
+    //   Number.isInteger(number))
     // ))
 
   return Number(
-    (sumOfAllMarks.reduce((acc, item) => acc + item) / sumOfAllMarks.length).toFixed(2)
+    ( allMarksArray.reduce((acc, item) => acc + item) /  allMarksArray.length).toFixed(2)
   );
 }
 
@@ -106,27 +101,36 @@ function getBestStudent(studentsObject) {
 console.log(`Best student based on average mark:`, getBestStudent(students));
 
 // ex. 6 calculate letters in a word
+// function calculateWordLetters(word) {
+//   const lettersObject = {};
+
+//   for (let i = 0; i < word.length; i++) {
+//     lettersObject[word[i]] = countLetter(word[i], word);
+//   }
+
+//   return lettersObject;
+// }
+
 function calculateWordLetters(word) {
-  const lettersObject = {};
+    const lettersObject = {};
 
-  for (let i = 0; i < word.length; i++) {
-    lettersObject[word[i]] = countLetter(word[i], word);
+    for (let i = 0; i < word.length; i++) {
+      lettersObject[word[i]] = +1;
+    }
+    return lettersObject;
   }
-
-  return lettersObject;
-}
 
 console.log(`Counted letters:`, calculateWordLetters("text"));
 
-function countLetter(letter, word) {
-  const userWord = word.toLowerCase();
-  let count = 0;
+// function countLetter(letter, word) {
+//   const userWord = word.toLowerCase();
+//   let count = 0;
 
-  for (let i = 0; i <= userWord.length; i++) {
-    if (userWord[i] === letter) {
-      count++;
-    }
-  }
+//   for (let i = 0; i <= userWord.length; i++) {
+//     if (userWord[i] === letter) {
+//       count++;
+//     }
+//   }
 
-  return count;
-}
+//   return count;
+// }
