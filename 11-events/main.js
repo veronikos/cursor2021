@@ -36,45 +36,23 @@ for (let i = 0; i < buttonsArray.length; i++) {
     buttonsArray[i].appendChild(soundName)
 }
 
+const workingKeys = ['KeyA', 'KeyS', 'KeyD', 'KeyF', 'KeyG', 'KeyH']
 
-// document.addEventListener('keydown', function(event) {
-//     if (event.code == 'KeyA') {
-//         playSound(soundsArray[0]);
-//         const focusedButton = `
-//             outline: none;
-//             box-shadow: 
-//             20px 15px 30px yellow, 
-//             -20px 15px 30px lime, 
-//             -20px -15px 30px blue, 
-//             20px -15px 30px red;
-//         }`  
-//         btnA.style = focusedButton;
-//     }
-//     else {
-//         btnsAll.style = `
-//         background-color:rgb(44, 42, 42, 0.6);
-//         box-shadow: 0 1px 9px 0 rgba(0, 0, 0, 0.4);
-//         color: violet;
-//         margin: 2em;
-//         min-height: 90px;
-//         flex: 0 1 120px;
-//         border: solid black 4px;
-//         border-radius: 7px;`
-//     }
-//   });
-
-//   document.addEventListener('keydown', function(event) {
-//     if (event.code == 'KeyS') {
-//         playSound(soundsArray[0]);
-//         const focusedButton = `
-//             outline: none;
-//             box-shadow: 
-//             20px 15px 30px yellow, 
-//             -20px 15px 30px lime, 
-//             -20px -15px 30px blue, 
-//             20px -15px 30px red;
-//         }`
-//         btnS.style = focusedButton;
-//     }
-//   });
-
+document.addEventListener("keydown", function (event) {
+  for (let i = 0; i < buttonsArray.length; i++) {
+    if (event.code == workingKeys[i]) {
+      playSound(soundsArray[i]);
+      buttonsArray[i].style.cssText = `box-shadow: 
+        20px 15px 30px yellow, 
+        -20px 15px 30px lime, 
+        -20px -15px 30px blue, 
+        20px -15px 30px red;
+        `;
+      buttonsArray
+        .filter((el) => el !== buttonsArray[i])
+        .forEach((el) =>(el.style.cssText =
+              "box-shadow: 0 1px 9px 0 rgba(0, 0, 0, 0.4);")
+        );
+    }
+  }
+});
