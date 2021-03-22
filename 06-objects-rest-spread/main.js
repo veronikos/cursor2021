@@ -39,26 +39,12 @@ function getSubjects(studentsObject) {
 console.log(getSubjects(students[0]));
 
 // 2. returns average mark of a student
-function getAverageMark(studentsObject) {
-  const subjectNames = Object.keys(studentsObject.subjects);
-  let allMarksArray = [];
-
-  for (let i = 0; i < subjectNames.length; i++) {
-    allMarksArray = allMarksArray.concat(
-      studentsObject.subjects[subjectNames[i]].filter(number =>
-      Number.isInteger(number))
-    );
-  }
-
-  // написала Форичом, работает, но выглядит очень непонятно.
-
-    // keys.forEach(key => sumOfAllMarks = sumOfAllMarks.concat(
-    // studentsObject.subjects[key].filter(number =>
-    //   Number.isInteger(number))
-    // ))
+function getAverageMark(student) {
+  const allMarksArray = Object.values(student.subjects).flat();
 
   return Number(
-    ( allMarksArray.reduce((acc, item) => acc + item) /  allMarksArray.length).toFixed(2)
+    (allMarksArray.reduce((acc, item) => acc + item) / allMarksArray.length
+    ).toFixed(2)
   );
 }
 
@@ -101,36 +87,14 @@ function getBestStudent(studentsObject) {
 console.log(`Best student based on average mark:`, getBestStudent(students));
 
 // ex. 6 calculate letters in a word
-// function calculateWordLetters(word) {
-//   const lettersObject = {};
-
-//   for (let i = 0; i < word.length; i++) {
-//     lettersObject[word[i]] = countLetter(word[i], word);
-//   }
-
-//   return lettersObject;
-// }
-
 function calculateWordLetters(word) {
     const lettersObject = {};
 
     for (let i = 0; i < word.length; i++) {
-      lettersObject[word[i]] = +1;
+      lettersObject[word[i]] = lettersObject[word[i]] + 1 || 1
     }
+
     return lettersObject;
   }
 
 console.log(`Counted letters:`, calculateWordLetters("text"));
-
-// function countLetter(letter, word) {
-//   const userWord = word.toLowerCase();
-//   let count = 0;
-
-//   for (let i = 0; i <= userWord.length; i++) {
-//     if (userWord[i] === letter) {
-//       count++;
-//     }
-//   }
-
-//   return count;
-// }
