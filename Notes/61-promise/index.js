@@ -278,4 +278,109 @@ function createTimer() {
     }
   }
   
-  test2();
+  // test2();
+
+
+//   function doPushups(n, onFinish) {
+//     const time = n * 200;
+//     setTimeout(() => {
+//         console.log(n + " pushups done " + new Date().toLocaleString());
+//         if (onFinish) onFinish();
+//     }, time);
+// }
+
+// function rest(onFinishRest) {
+//     setTimeout(() => {
+//         console.log("Rest is done " + new Date().toLocaleString());
+//         if (onFinishRest) onFinishRest()
+//     }, 1000);
+// }
+
+//CALLBACK HELL
+
+// doPushups(10, () => {
+//   rest(() => {
+//     doPushups(9, () => {
+//         rest(() => {
+//             console.log("Yess, I finished!!")
+//         })
+//     });
+//   });
+// });
+
+// WITH PROMISES REST-PUSHUPS
+
+function doPushups(n) {
+
+  return new Promise((resolve) => {
+    const time = n * 200;
+
+    setTimeout(() => {
+      console.log(n + " pushups done " + new Date().toLocaleString());
+
+      resolve();
+    }, time);
+
+  });
+}
+
+function rest() {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      console.log("Rest is done " + new Date().toLocaleString());
+
+      resolve()
+    }, 1000);
+  });
+}
+
+// doPushups(10).then(() => {
+//     console.log("10 done");
+//     return rest()
+
+// }).then(() => {
+//     console.log("I rest")
+// })
+
+// doPushups(10)
+//     .then(rest) //can write without arrow if no arg in func
+//     .then(() => doPushups(9))
+//     .then(() => rest())
+//     .then(() => doPushups(8))
+//     .then(() => rest())
+//     .then(() => {
+//     console.log("Finished")
+//     })
+
+
+// ASYNC
+// function doHeawyLifting(n) {
+
+//   return new Promise ((resolve) => {
+//     const time = n * 200;
+
+//     setTimeout(() => {
+//       console.log(n + " lifts done " + new Date().toLocaleString());
+
+//       resolve();
+//     }, time);
+//   })
+
+// }
+
+// async function train() {
+//   await doHeawyLifting(8);
+
+//   console.log(`done`)
+// }
+
+// train()
+
+// ASYNC PushUps
+
+async function cursorPushUps() {
+  await doPushups(8);
+  rest()
+}
+
+cursorPushUps()
