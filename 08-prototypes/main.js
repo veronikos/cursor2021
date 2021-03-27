@@ -29,7 +29,7 @@ class Student {
 
   set setMarks(newMark) {
     if (this.activeStudent) {
-      this.startMarks.push(newMark);
+      return this.startMarks = [].concat(this.startMarks, newMark)
     }
   }
 }
