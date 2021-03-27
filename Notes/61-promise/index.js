@@ -404,17 +404,17 @@ console.log ("Requesting data...")
 //   }, 2000);
 // }, 2000);
 
-const p = new Promise((resolve, reject) => {
-  setTimeout(() => {
-    console.log("Preparing data...");
-    const backendData = {
-      server: "aws",
-      port: 2000,
-      status: "working",
-    }
-    resolve(backendData) // Это будет нам доступно после then, как данные.
-  }, 2000)
-})
+// const p = new Promise((resolve, reject) => {
+//   setTimeout(() => {
+//     console.log("Preparing data...");
+//     const backendData = {
+//       server: "aws",
+//       port: 2000,
+//       status: "working",
+//     }
+//     resolve(backendData) // Это будет нам доступно после then, как данные.
+//   }, 2000)
+// })
 
 // p.then(backendData => {
 //   console.log("Promise resolved", backendData);
@@ -467,5 +467,6 @@ const sleep = ms => {
   })
 }
 
-sleep(2000).then(() => console.log('After 2 sec'))
-sleep(3000).then(() => console.log('After 3 sec'))
+// sleep(2000).then(() => console.log('After 2 sec'))
+// sleep(3000).then(() => console.log('After 3 sec'))
+
