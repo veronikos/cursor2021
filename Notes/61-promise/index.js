@@ -383,4 +383,89 @@ async function cursorPushUps() {
   rest()
 }
 
-cursorPushUps()
+// cursorPushUps()
+
+// VLADILEN MININ
+
+console.log ("Requesting data...")
+
+// setTimeout(() => {
+//   console.log ("Preparing data...")
+
+//   const backendData = {
+//     server: 'aws',
+//     port: 2000,
+//     status: 'working'
+//   }
+
+//   setTimeout(() => {
+//     backendData.modified = true;
+//     console.log ('Sata received', backendData)
+//   }, 2000);
+// }, 2000);
+
+const p = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    console.log("Preparing data...");
+    const backendData = {
+      server: "aws",
+      port: 2000,
+      status: "working",
+    }
+    resolve(backendData) // Это будет нам доступно после then, как данные.
+  }, 2000)
+})
+
+// p.then(backendData => {
+//   console.log("Promise resolved", backendData);
+// })
+
+
+// NO CHAINING
+// p.then(backendData => {
+//     const p2 = new Promise ((resolve, reject) => {
+//       setTimeout(() => {
+//         backendData.modified = true;
+
+//         resolve(backendData)
+//         // console.log ('Data received', backendData)
+//       }, 2000)
+//     })
+
+//     p2.then(clientData => {
+//       console.log('Data received', clientData)
+//     })
+//   })
+
+
+// CHAINING - ADD RETURN
+// p.then(backendData => {
+//   return new Promise ((resolve, reject) => {
+//     setTimeout(() => {
+//       backendData.modified = true;
+//       resolve(backendData)
+//     }, 2000)
+//   })
+// })
+//   .then (data => {
+//   console.log('Data received', data)
+//   data.frompromise = true; 
+//   return data
+// })
+//   .then(data => {
+//   console.log('Data modified', data)
+// }) 
+// .finally(() => {
+//   console.log('Finally')
+// })
+
+// FISHKA:)
+
+const sleep = ms => {
+  return new Promise(resolve => {
+    setTimeout(() => resolve(), ms)
+  })
+}
+
+sleep(2000).then(() => console.log('After 2 sec'))
+sleep(3000).then(() => console.log('After 3 sec'))
