@@ -3,7 +3,18 @@ async function getInfo() {
     const charactersUrls = filmsData.data.characters
     const charactersShortInfo = {}
 
-    const body = document.querySelector("body");
+    const field = document.querySelector('.field');
+    const flex = document.createElement('div')
+    flex.className = 'flex'
+    flex.style.cssText =
+      `display: flex;
+			flex-direction: row;
+			justify-content: flex-start;
+			align-items: flex-start;
+			align-content: flex-start;
+			flex-wrap: wrap;
+			padding: 15px`
+    field.appendChild(flex);
     
     for (let i = 0; i < charactersUrls.length; i++) {
       const data = await axios.get(`${charactersUrls[i]}`);
@@ -13,13 +24,32 @@ async function getInfo() {
         gender: data.data.gender,
       };
       
-      const div = document.createElement('div')
-      div.innerHTML = `${i} :
-      Name: ${charactersShortInfo[i].name}
-      Birth year: ${charactersShortInfo[i].birth_year}
-      Gender: ${charactersShortInfo[i].gender}
+      const caracterCard = document.createElement('div')
+      caracterCard.className = 'caracterCard'
+      caracterCard.style.cssText = `
+        padding: 10px;
+			  text-align: center;
+        border: brown solid 3px;
+        border-radius: 10px;
+        min-height: 120px;
+        flex: 0 1 120px;
       `
-      body.append(div)
+      flex.appendChild(caracterCard)
+      
+      const name = document.createElement('div')
+      name.className = 'name'
+      name.innerHTML = `Name: ${charactersShortInfo[i].name}`
+      caracterCard.append(name)
+
+      const birth_year = document.createElement('div')
+      birth_year.className = 'birth_year'
+      birth_year.innerHTML = `Birth year: ${charactersShortInfo[i].birth_year}`
+      caracterCard.append(birth_year)
+
+      const gender = document.createElement('div')
+      gender.className = 'gender'
+      gender.innerHTML = `Gender: ${charactersShortInfo[i].gender}`
+      caracterCard.append(gender)
     }
 
     return charactersShortInfo
