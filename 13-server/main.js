@@ -11,7 +11,6 @@ async function getInfo() {
     const charactersShortInfo = {}
 
     const body = document.querySelector("body");
-    const div = document.createElement('div')
     
     for (let i = 0; i < charactersUrls.length; i++) {
       const data = await axios.get(`${charactersUrls[i]}`);
@@ -20,7 +19,8 @@ async function getInfo() {
         birth_year: data.data.birth_year,
         gender: data.data.gender,
       };
-
+      
+      const div = document.createElement('div')
       div.innerHTML = `${i} :
       Name: ${charactersShortInfo[i].name}
       Birth year: ${charactersShortInfo[i].birth_year}
