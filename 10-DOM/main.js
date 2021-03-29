@@ -46,7 +46,7 @@ function generateBlocksInterval() {
   startShuffle = setInterval(() => shuffleColors(), 1000);
 }
 
-let clickedShuffleButton = null;
+let clickedShuffleButton = 0;
 
 shuffleBtn.onclick = function () {
   clickedShuffleButton++;
@@ -57,5 +57,5 @@ shuffleBtn.onclick = function () {
 
 stopBtn.onclick = function () {
   clearInterval(startShuffle);
-  clickedShuffleButton = null;
+  clickedShuffleButton = 0;
 };
