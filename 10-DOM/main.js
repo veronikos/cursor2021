@@ -1,8 +1,8 @@
 const squares = document.querySelectorAll(".square");
 
 function getRandomRGB() {
-  let rgb = [];
-  for (let i = 0; i < 3; i++) rgb.push(Math.floor(Math.random() * 255));
+  const rgb = [];
+  for (let i = 0; i < 3; i++) {rgb.push(Math.floor(Math.random() * 255))};
   return "rgb(" + rgb + ")";
 }
 
@@ -64,8 +64,6 @@ function shuffleColors() {
     square.style.backgroundColor = getRandomRGB();
   });
 }
-
-let startInterval = null;
 
 function generateBlocksInterval() {
   startShuffle = setInterval(() => shuffleColors(), 1000);
