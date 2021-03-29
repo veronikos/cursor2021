@@ -1,10 +1,3 @@
-// axios
-//   .get("https://swapi.dev/api/films/2/")
-//   .then((res) => {
-//     return res.data;
-//   })
-//   .then(data => console.log(data))
-
 async function getInfo() {
     const filmsData = await axios.get("https://swapi.dev/api/films/2/");
     const charactersUrls = filmsData.data.characters
