@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Fruits Shop</title>
+	<title>HW#13 Server</title>
 	<link rel="shortcut icon" type="image/png" href="assets/favicon.png"/>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;700;900&display=swap" rel="stylesheet">
 	<style type="text/css">
 		* {
@@ -23,7 +22,7 @@
 		.container {
 			width: 100%;
 			height: 100%;
-			padding-bottom: 40px;
+			padding-bottom: 70px;
 		}
 
 		.content{
@@ -42,7 +41,7 @@
 		}
 
 		span {
-			font-weight: 700;
+			font-weight: 500;
 		}
 
 		ul {
@@ -57,7 +56,6 @@
 
 		.header-text {
 			padding: 5px 20px;
-			background-color: #fff;
 			text-align: center;
 		}
 
@@ -120,23 +118,11 @@
 			color: black;
 		}
 
-		.shop {
+		.field {
 			max-width: 1000px;
 			height: auto;
 			margin: 30px 30px 40px 0px;
 			float: right;
-			/*border: 1px solid lavender;*/
-		}
-
-		.shop-header {
-			display: flex;
-			flex-direction: row;
-			justify-content: space-between;
-			align-items: flex-start;
-			align-content: flex-start;
-			flex-wrap: wrap;
-			/*border: 2px solid #ccc;*/
-			padding: 5px 15px;
 		}
 
 		.flex {
@@ -146,13 +132,14 @@
 			align-items: flex-start;
 			align-content: flex-start;
 			flex-wrap: wrap;
-			/*border: 2px solid #ccc;*/
 			padding: 15px;
 		}
 
 		.item {
-			padding: 5px;
+			padding: 10px;
 			text-align: center;
+            border: brown solid 3px;
+            border-radius: 10px;
 		}
 
 		.item p {
@@ -187,7 +174,7 @@
 
 		footer {
 		 	position: absolute;
-		 	background-color: lavender;
+             background-color: lavender;
 		 	bottom: 0;
 		 	width: 100%;
 		}
@@ -224,54 +211,29 @@
 		 			</div>
 		 		</div>
 
-		 		<div class="shop">
+		 		<div class="field">
 		 			<div class="flex">
 						<div class="item">
-							<img src="assets/product-1.jpg">
-							<p>Crab pool security</p>
-							<span>$30.00</span>
-						</div>
-						<div class="item">
+                            <span>Name:</span>
+                            <p>ALbert Einshtein</p>
 							<img src="assets/product-2.jpg">
-							<p>Crab pool security</p>
-							<span>$30.00</span>
+							<p><b>Birth Year: </b>134BD</p>
+							<span>Male</span>
 						</div>
 						<div class="item">
-							<img src="assets/product-3.jpg">
-							<p>Crab pool security</p>
-							<span>$30.00</span>
+                            <span>Name:</span>
+                            <p>ALbert Einshtein</p>
+							<img src="assets/product-2.jpg">
+							<p><b>Birth Year: </b>134BD</p>
+							<span>Male</span>
 						</div>
 						<div class="item">
-							<img src="assets/product-4.jpg">
-							<p>Crab pool security</p>
-							<span>$30.00</span>
+                            <span>Name:</span>
+                            <p>ALbert Einshtein</p>
+							<img src="assets/product-2.jpg">
+							<p><b>Birth Year: </b>134BD</p>
+							<span>Male</span>
 						</div>
-						<div class="item">
-							<img src="assets/product-5.jpg">
-							<p>Crab pool security</p>
-							<span>$30.00</span>
-						</div>
-						<div class="item">
-							<img src="assets/product-6.jpg">
-							<p>Crab pool security</p>
-							<span>$30.00</span>
-						</div>
-						<div class="item">
-							<img src="assets/product-7.jpg">
-							<p>Crab pool security</p>
-							<span>$30.00</span>
-						</div>
-						<div class="item">
-							<img src="assets/product-8.jpg">
-							<p>Crab pool security</p>
-							<span>$30.00</span>
-						</div>
-						<div class="item">
-							<img src="assets/product-9.jpg">
-							<p>Crab pool security</p>
-							<span>$30.00</span>
-						</div>				
-					</div>
 					<div class="pagination">
 						<div class="pagi-item">1</div>
 						<div class="pagi-item">1</div>
