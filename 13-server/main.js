@@ -104,6 +104,7 @@ async function getPlanets() {
   }
 
   function add5Planets(planets) {
+    flex.innerHTML = ""
     for (let i = 0; i < planets.length; i++) {
       const planetCard = document.createElement("div");
       planetCard.className = "planetCard";
@@ -135,22 +136,13 @@ async function getPlanets() {
         "display: block; padding: 10px 20px; width: 20px; height: 30px; margin-left: auto;";
       planetCard.append(planetImg);
     }
+
     const nextButton = document.createElement("button");
     nextButton.className = `styleButton`;
     nextButton.textContent = "Next";
     flex.appendChild(nextButton);
   
     nextButton.addEventListener("click", () => {
-      field.innerHTML = "";
-      const flex = document.createElement("div");
-      flex.className = "flex";
-      flex.style.cssText = `display: flex;
-        flex-direction: row;
-        justify-content: center;
-        flex-wrap: wrap;
-        padding: 15px;
-        max-width: 300px;`;
-      field.appendChild(flex);
       add5Planets(planetsSubArray[1]);
     });
   }
