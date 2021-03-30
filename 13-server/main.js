@@ -4,8 +4,19 @@ getInfoButton.addEventListener("click", getInfo);
 const getPlanetsButton = document.querySelector(".getPlanets");
 getPlanetsButton.addEventListener("click", getPlanets);
 
+document.querySelector("form").addEventListener("submit", getNumber);
+function getNumber(){
+    const n = document.getElementById("number").value;
+    console.log(`https://swapi.dev/api/films/ ${getNumber()} /`)
+    return n
+}
+// наверное надо промис
+
+// axios.get(`https://swapi.dev/api/films/`).then(data => console.log(data.data));
+
+
 async function getInfo() {
-  const filmsData = await axios.get("https://swapi.dev/api/films/2/");
+  const filmsData = await axios.get(`https://swapi.dev/api/films/2/`);
   const charactersUrls = filmsData.data.characters;
   const charactersShortInfo = {};
 
