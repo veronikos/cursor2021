@@ -22,7 +22,8 @@ async function getInfo() {
   field.appendChild(flex);
 
   for (let i = 0; i < charactersUrls.length; i++) {
-    const data = await axios.get(`${charactersUrls[i]}`);
+    const data = await axios.get(`https${charactersUrls[i].substring(4)}`);
+    // console.log(`https${charactersUrls[i].substring(4)}`)
     charactersShortInfo[i] = {
       name: data.data.name,
       birth_year: data.data.birth_year,
