@@ -1,32 +1,35 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-	<link rel="shortcut icon" type="image/png" href="assets/favicon.png"/>
-    <title>#13 | Server API </title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
+	<meta charset='utf-8'>
+	<meta http-equiv='X-UA-Compatible' content='IE=edge'>
+	<link rel="shortcut icon" type="image/png" href="assets/favico.png" />
+	<title>#13 | Server API </title>
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;700;900&display=swap" rel="stylesheet">
-    <style type="text/css">
+	<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;700;900&display=swap"
+		rel="stylesheet">
+	<style type="text/css">
 		* {
-		  margin: 0;
-		  padding: 0;
+			margin: 0;
+			padding: 0;
 		}
 
-		html { 
-		 	position:relative; 
-		 	min-height:100%;
+		html {
+			position: relative;
+			min-height: 100%;
 		}
 
 		body {
 			font-family: 'Source Sans Pro', sans-serif;
+			text-align: center;
 		}
 
-		i, p, span {
+		i,
+		p,
+		span {
 			display: inline-block;
-			padding: 5px;
-			vertical-align: middle;
 		}
 
 		span {
@@ -50,7 +53,7 @@
 		.container {
 			width: 100%;
 			height: 100%;
-			padding-bottom: 40px;
+			padding-bottom: 70px;
 		}
 
 		.header-text ul {
@@ -62,101 +65,42 @@
 
 		.header-text li {
 			font-size: 20px;
-			margin-left: 70px;
+			margin: 0 40px;
 			font-weight: 700;
 			text-transform: uppercase;
-			color: black;
-		}		
-
-		.content{
-			width: 100%;
-			display: inline-block;
+			color: #e4cd05;
 		}
 
-
-		h1 {
-			font-size: 20px;
-			padding: 10px;
-			color: rgb(118, 157, 158);
-		}
-
-		body {
-			color: lightsalmon;
+		.getInfo {
+			background-color: #e4cd05;
+			border: black solid 3px;
+			border-radius: 10px;
+			color:black;
+			margin-top: 20px;
+			padding: 15px 32px;
 			text-align: center;
-		}
-
-		.sidebar{
-			max-width: 400px;
-			float: left;
-		}
-
-		.sidebar ul {
-			padding: 10px;
-			display: inline-block;
-		}
-
-		.sidebar li {
-			display: block;
-			padding: 8px 0;
-		}
-
-		.sidebar strong {
-			margin: 10px 0;
-			font-size: 20px;
-			display: inline-block;
-		}
-
-		.sidebar li {
-			display: block;
-			padding: 8px 0;
-		}
-
-		.sidebar a {
 			text-decoration: none;
-			color: black;
+			display: inline-block;
+			font-size: 20px;
+			font-family: inherit;
+			font-weight: 600;
+		}
+
+		.content {
+			width: 100%;
 		}
 
 		.field {
-			max-width: 1000px;
 			height: auto;
-			margin: 30px 30px 40px 0px;
-			float: right;
-		}
-
-		/* .flex {
 			display: flex;
-			flex-direction: row;
-			justify-content: space-between;
-			align-items: flex-start;
-			align-content: flex-start;
-			flex-wrap: wrap;
-			padding: 15px;
+			justify-content: center;
 		}
-
-		.item {
-			padding: 10px;
-			text-align: center;
-            border: brown solid 3px;
-            border-radius: 10px;
-		}
-
-		.item p {
-			display: block;
-		}
-
-		.item span {
-			display: block;
-			font-size: 20px;
-			font-weight: 900;
-		}  */
 
 		.pagination {
 			display: flex;
-			width: 200px;
+			justify-content: center;
+			width: auto;
 			flex-direction: row;
-			justify-content: space-between;
-			align-items: flex-start;
-			align-content: flex-start;
 			flex-wrap: nowrap;
 			padding: 15px;
 		}
@@ -171,19 +115,19 @@
 		}
 
 		footer {
-		 	position: absolute;
-            background-color: lavender;
-		 	bottom: 0;
-		 	width: 100%;
+			position: absolute;
+			background-color: lavender;
+			bottom: 0;
+			width: 100%;
 		}
 
-	    .footer-text {
- 			padding: 20px;
+		.footer-text {
+			padding: 20px;
 		}
-
 	</style>
-    
+
 </head>
+
 <body>
 	<div class="container">
 		<header>
@@ -193,60 +137,29 @@
 					<li>by Veronika Kostenko</li>
 				</ul>
 			</div>
+			<button class="getInfo">Get info</button>
+			<div class="pagination">
+				<!-- <div class="pagi-item">1</div>
+				<div class="pagi-item">2</div>
+				<div class="pagi-item">3</div>
+				<div class="pagi-item"><i class="fa fa-long-arrow-right"></i></div> -->
+			</div>
 		</header>
 		<div class="content">
-			<div class="sidebar">
-				<div>
-				   <ul>
-					   <li><strong>What to do:</strong></li>
-					   <li><a href="">Get charaters</a></li>
-					   <li><a href="">Choose film</a></li>
-					   <li><a href="">Button</a></li>
-					   <li><a href="">Contact</a></li>
-				   </ul>		 			
-				</div>
-			</div>
 			<div class="field">
-				<!-- <div class="flex">
-				   <div class="item">
-					   <span>Name:</span>
-					   <p>ALbert Einshtein</p>
-					   <img src="assets/product-2.jpg">
-					   <p><b>Birth Year: </b>134BD</p>
-					   <span>Male</span>
-				   </div>
-				   <div class="item">
-					   <span>Name:</span>
-					   <p>ALbert Einshtein</p>
-					   <img src="assets/product-2.jpg">
-					   <p><b>Birth Year: </b>134BD</p>
-					   <span>Male</span>
-				   </div>
-				   <div class="item">
-					   <span>Name:</span>
-					   <p>ALbert Einshtein</p>
-					   <img src="assets/product-2.jpg">
-					   <p><b>Birth Year: </b>134BD</p>
-					   <span>Male</span>
-				   </div> -->
-			   <div class="pagination">
-				   <div class="pagi-item">1</div>
-				   <div class="pagi-item">1</div>
-				   <div class="pagi-item">1</div>
-				   <div class="pagi-item"><i class="fa fa-long-arrow-right"></i></div>
-			   </div>
 			</div>
 		</div>
 	</div>
-		<footer>
-			<div class="footer-text">
-				<div>
+	<footer>
+		<div class="footer-text">
+			<div>
 				<span>task by Cursor School</span>
 			</div>
-			</div>
-		</footer> 
+		</div>
+	</footer>
 
 	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-	<script src='main.js'></script> 
+	<script src='main.js'></script>
 </body>
+
 </html>
