@@ -1,55 +1,35 @@
 function* createIdGenerator() {
-  for (let index = 1; index <= Infinity; index++) {
-    yield index
+  let num = 1;
+  while (true) {
+    yield num++;
   }
 }
-
-const idGenerator = createIdGenerator()
-
-console.log(idGenerator.next().value)
-console.log(idGenerator.next().value)
-console.log(idGenerator.next().value)
-console.log(idGenerator.next().value)
-console.log(idGenerator.next().value)
-console.log(idGenerator.next().value)
-console.log(idGenerator.next().value)
-console.log(idGenerator.next().value)
-
-// Прикольный альтернативный вариант
-
-  // function * naturalNumbers() {
-  //   let num = 1;
-  //   while (true) {
-  //     yield num;
-  //     num = num + 1
-  //   }
-  // }
-  // const numbers = naturalNumbers();
-  // console.log(numbers.next().value)
-  // console.log(numbers.next().value)
-
-
+const idGenerator = createIdGenerator();
+console.log(idGenerator.next().value);
+console.log(idGenerator.next().value);
+console.log(idGenerator.next().value);
+console.log(idGenerator.next().value);
 
 // for(let value of idGenerator) {
-//   console.log(value); 
+//   console.log(value);
 // }
 
-// function* newFontGenerator(num) {
-//   next(upOrDown) = function() {
-//     let number = num;
-//     if (upOrDown === "up") {
-//       yield number =+ 2
-//     } else if (upOrDown === "down") {
-//       yield number =- 2
-//     } else {
-//       yield number
-//       return number
-//     }
-//   }
+// function newFontGenerator(startFrom) {
+//   return (function *(reply) {
+//       let price = startFrom;
+//       for (let i = 1; i < Infinity; i++) {
+//         if (reply === 'up') {
+//           yield price + 2
+//         } else if (reply === 'down') {
+//           yield price - 2;
+//         }
+//         yield price
+//         }
+//   })();
 // }
 
-// const fontGenerator = newFontGenerator()
+// const iter = newFontGenerator(14)
 
-// console.log(fontGenerator.next().value)
-
-// 
+//   console.log(iter.next('down').value)
+//   console.log(iter.next('up').value)
+//   console.log(iter.next('up').value)
