@@ -1,11 +1,17 @@
 const getInfoButton = document.querySelector(".getInfo");
-getInfoButton.addEventListener("click", getInfo);
+const filmId = document.getElementById('film-id')
+getInfoButton.addEventListener('click', () => {
+  getInfo(filmId.value)
+})
 
 const getPlanetsButton = document.querySelector(".getPlanets");
 getPlanetsButton.addEventListener("click", getPlanets);
 
-async function getInfo() {
-  const filmsData = await axios.get(`https://swapi.dev/api/films/2/`);
+
+async function getInfo(n) {
+  const link = `https://swapi.dev/api/films/` + n
+  const filmsData = await axios.get(link);
+  console.log(link)
   const charactersUrls = filmsData.data.characters;
   const charactersShortInfo = {};
 
