@@ -9,9 +9,9 @@ getPlanetsButton.addEventListener("click", getPlanets);
 
 
 async function getInfo(n) {
-  const link = `https://swapi.dev/api/films/` + n
-  const filmsData = await axios.get(link);
+  const link = 'https://swapi.dev/api/films/' + n
   console.log(link)
+  const filmsData = await axios.get(link);
   const charactersUrls = filmsData.data.characters;
   const charactersShortInfo = {};
 
