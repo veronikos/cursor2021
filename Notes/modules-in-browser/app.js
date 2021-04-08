@@ -1,3 +1,5 @@
 console.log("Hello World")
 
-console.log(pow(16))
+console.log($HELPERS)
+
+console.log($HELPERS.pow(16))
