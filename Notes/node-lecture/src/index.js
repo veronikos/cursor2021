@@ -6,4 +6,4 @@ console.log(four, helpers.pow(3))
 
 const greeting = text => console.log(text)
 
-greeting("Hello")
+greeting("Hello ss")

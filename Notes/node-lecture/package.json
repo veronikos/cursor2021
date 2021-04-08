@@ -4,7 +4,8 @@
   "description": "lalala test module",
   "main": "./src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "nodemon ./src/index.js"
   },
   "repository": {
     "type": "git",
@@ -16,5 +17,8 @@
     "url": "https://github.com/veronikos/cursor2021/issues"
   },
   "homepage": "https://github.com/veronikos/cursor2021#readme",
-  "dependencies": {}
+  "dependencies": {
+    "nodemon": "^2.0.7"
+  },
+  "devDependencies": {}
 }
