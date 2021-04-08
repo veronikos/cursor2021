@@ -1,5 +1,6 @@
 import { pow } from './helpers.js'
+import './styles.css'
 
 console.log("Hello World")
 
-console.log(pow(4))
+console.log(pow(234))
