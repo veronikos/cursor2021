@@ -1,8 +1,2 @@
-const module = function() {
-    var pow = value => value * value;
-    return {
-        pow
-    }
-}
+export const pow = value => value * value;
 
-const $HELPERS = module() 
