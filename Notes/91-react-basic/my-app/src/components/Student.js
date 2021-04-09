@@ -1,10 +1,10 @@
 import React from 'react';
 
-const Student = () => {
+const Student = ({name, tasks}) => {
     return(
         <div>
-            <h3>Name: </h3>
-            <p>Done exersises: </p>
+            <h3>Name: {name}</h3>
+            <p>Done exersises: {tasks}</p>
         </div>
     )
 }
