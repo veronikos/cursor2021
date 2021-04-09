@@ -9,7 +9,7 @@ const studentsList = [
     tasks: 12
   },
   {
-    id: 87683,
+    id: 8763,
     name: "Monika",
     tasks: 10
   }
@@ -18,7 +18,7 @@ const studentsList = [
 function App() {
   return (
     <div className="App">
-      {studentsList.map(student => <Student {...student}/>)}
+      {studentsList.map(student => <Student {...student} key={student.id}/>)}
     </div>
   );
 }
