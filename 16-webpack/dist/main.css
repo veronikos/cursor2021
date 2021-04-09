@@ -1,3 +1,13 @@
 body {
     background-color: rgb(196, 31, 31);
 }
+h1 {
+    font-size: 20px;
+    padding: 10px;
+    color: rgb(118, 157, 158);
+}
+body {
+    background-color: #e6f2de;
+    color: lightsalmon;
+    text-align: center;
+}
