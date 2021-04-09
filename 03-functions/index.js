@@ -117,11 +117,9 @@ document.writeln(`8. Random numeric password: ${getRandomPassword(5.61)}`);
 
 // console.log (deleteLetters("a", "aakalaoannalllla;a l;l;a"))
 
-const double = value => value*2
-const pow = value => value*value
 
 module.exports = {
-    double,
-    pow,
-    getRandomPassword
+    getRandomPassword,
+    convertCurrency,
+    countLetter
 }

@@ -122,3 +122,9 @@ console.log(` ex.9:`, divideByThree("LOVE"));
 // }
 
 // console.log(`Doesn't work! ex.10:`, generateCombinations("467"));
+
+module.exports = {
+  divideByThree,
+  getMedian,
+  getRandomArray
+}

@@ -1,4 +1,4 @@
-import { getRandomPassword, pow  } from '../local-fuctions/main.js'
+import { getRandomPassword, pow  } from '../../03-functions'
 import './styles.css'
 
 console.log(getRandomPassword(7))
