@@ -122,5 +122,6 @@ const pow = value => value*value
 
 module.exports = {
     double,
-    pow
+    pow,
+    getRandomPassword
 }

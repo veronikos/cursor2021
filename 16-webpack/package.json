@@ -4,8 +4,14 @@
   "description": "This is my homework on Weblack.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --config dev.webpack.config.js"
   },
   "author": "Veronika Kostenko",
-  "license": "UNLICENCED"
+  "license": "UNLICENCED",
+  "devDependencies": {
+    "html-webpack-plugin": "^5.3.1",
+    "webpack": "^5.31.0",
+    "webpack-cli": "^4.6.0"
+  }
 }
