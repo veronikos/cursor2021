@@ -1,32 +1,19 @@
-// import logo from './logo.svg';
 import './App.css';
-import Publication from "./components/publication-sample"
+import UserInfo from './components/UserInfo'
 
-const ANAKIN_IMAGE = "https://upload.wikimedia.org/wikipedia/en/thumb/7/74/Anakin-Jedi.jpg/220px-Anakin-Jedi.jpg";
-
-const RAY_IMAGE = "https://specials-images.forbesimg.com/imageserve/5e63b3c8e1e617000759130e/960x0.jpg?fit=scale";
-
-const studentsList = [
-  {
-    id: 87683,
-    name: "Nika",
-    tasks: 12,
-    url: ANAKIN_IMAGE,
-    alt: "Nika"
-  },
-  {
-    id: 8763,
-    name: "Monika",
-    tasks: 10,
-    url: RAY_IMAGE,
-    alt: "Monika"
-  }
-]
-
-function Post() {
+function Post(props) {
   return (
-    <div className="App">
-      {studentsList.map(student => <Publication {...student} key={student.id}/>)}
+    <div className="Comment">
+      <UserInfo user={props.author} />
+      <div className="Comment-date">
+        {props.date}
+      </div>
+      <div className="Comment-text">{props.comment}</div>
+      <img
+      className="Image"
+      src={props.image}
+      alt={props.image}
+    />
     </div>
   );
 }
