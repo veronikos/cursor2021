@@ -1,0 +1,55 @@
+body {
+  height: 100%;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 500;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #282c34;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.Avatar {
+  border-radius: 100px;
+  width:  80px;
+}
+
+.Image {
+  border-radius: 20px;
+  float: right;
+}
+
+.Comment {
+  padding: 20px;
+  border: aquamarine solid 1px;
+  border-radius: 20px;
+}
+
+.UserInfo {
+  display: flex;
+  align-items: center;
+}
+
+.UserInfo-name {
+  padding: 20px;
+  font-weight: 600;
+}
+
+.UserInfo-nickname {
+  font-size: 20px;
+  color: darkcyan;
+  padding: 10px;
+  height: 100%;
+}
+
+.Comment-date {
+  font-size: 20px;
+  color: darkcyan;
+  width: 100px;
+  text-align: center;
+}
