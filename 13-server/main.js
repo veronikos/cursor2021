@@ -1,3 +1,5 @@
+// here i try to make planets work properly
+
 const getInfoButton = document.querySelector(".getInfo");
 const filmId = document.getElementById('film-id')
 getInfoButton.addEventListener('click', () => {
@@ -19,12 +21,6 @@ async function getInfo(n) {
   field.innerHTML = "";
   const flex = document.createElement("div");
   flex.className = "flex";
-  flex.style.cssText = `display: flex;
-			flex-direction: row;
-      justify-content: center;
-			flex-wrap: wrap;
-			padding: 15px;
-			max-width: 1300px;`;
   field.appendChild(flex);
 
   for (let i = 0; i < charactersUrls.length; i++) {
@@ -38,21 +34,10 @@ async function getInfo(n) {
 
     const caracterCard = document.createElement("div");
     caracterCard.className = "caracterCard";
-    caracterCard.style.cssText = `
-        padding: 10px;
-			  text-align: center;
-        border: black solid 3px;
-        border-radius: 10px;
-        width: 200px;
-        height: 120px;
-        margin: 15px;      
-      `;
     flex.appendChild(caracterCard);
 
     const name = document.createElement("p");
     name.className = "name";
-    name.style.cssText =
-      "font-weight: 600; font-size: 22px; display: block; padding: 10px";
     name.innerHTML = `${charactersShortInfo[i].name}`;
     caracterCard.append(name);
 
@@ -63,8 +48,6 @@ async function getInfo(n) {
 
     const gender = document.createElement("img");
     gender.className = "gender";
-    gender.style.cssText =
-      "display: block; padding: 10px; width: 20px; height: 30px; margin-left: auto; margin-right: auto;";
 
     if (charactersShortInfo[i].gender === "male") {
       gender.src = "assets/mars.svg";
@@ -81,79 +64,73 @@ async function getInfo(n) {
   return charactersShortInfo;
 }
 
+function createButton(name) {
+  const button = document.createElement("button");
+  button.className = `styleButton ${name}`;
+  button.textContent = name;
+  planetsFlexContainer.appendChild(button);
+}
+
+const planetsFlexContainer = document.createElement("div");
+
+function showPlanets(planets) {
+  planetsFlexContainer.innerHTML = ""
+  for (let i = 0; i < planets.length; i++) {
+    const planetCard = document.createElement("div");
+    planetCard.className = "planetCard";
+    planetsFlexContainer.appendChild(planetCard);
+
+    const name = document.createElement("p");
+    name.className = "name";
+    name.innerHTML = `${planets[i]}`;
+    planetCard.append(name);
+
+    const planetIcon = document.createElement("img");
+    planetIcon.className = "planetImg";
+    planetIcon.src = "assets/globe.svg";
+    planetCard.append(planetIcon);
+  }
+    createButton('Next')
+    const nextButton = document.querySelector(".Next");
+    nextButton.addEventListener("click", getNextPlanets);
+
+    createButton('Prev')
+    const prevButton = document.querySelector(".Prev");
+    prevButton.addEventListener("click", getPrevPlanets);
+}
+
+
 async function getPlanets() {
-  const planetsData = await axios.get("https://swapi.dev/api/planets/");
-  const planetsObjects = planetsData.data.results;
-  const planets = planetsObjects.map((planet) => planet.name);
+  planetsData = await axios.get("https://swapi.dev/api/planets/");
+  drawPlanets(planetsData)
+}
+
+async function getNextPlanets() {
+  if (planetsData.data.next !== null) {
+      planetsData = await axios.get(planetsData.data.next);
+  console.log(planetsData)
+  drawPlanets(planetsData)
+  }
+}
+
+async function getPrevPlanets() {
+  if (planetsData.data.previous !== null) {
+      planetsData = await axios.get(planetsData.data.previous);
+  console.log(planetsData)
+  drawPlanets(planetsData)
+  }
+}
+
+function drawPlanets(axiosResponse) {
+  const planets = axiosResponse.data.results.map((planet) => planet.name);
 
   const field = document.querySelector(".field");
   field.innerHTML = "";
   
-  const flex = document.createElement("div");
-  flex.className = "flex";
-  flex.style.cssText = `display: flex;
-    flex-direction: row;
-    justify-content: center;
-    flex-wrap: wrap;
-    padding: 15px;
-    max-width: 300px;`;
-  field.appendChild(flex);
+  planetsFlexContainer.className = "flexPlanets";
+  field.appendChild(planetsFlexContainer);
 
-  // divide planetsArray into arrays of 5 planets
-  let amountOnPage = 5;
-  let planetsSubArray = [];
-  for (let i = 0; i < Math.ceil(planets.length / amountOnPage); i++) {
-    planetsSubArray[i] = planets.slice(
-      i * amountOnPage,
-      i * amountOnPage + amountOnPage
-    );
-  }
-
-  function add5Planets(planets) {
-    flex.innerHTML = ""
-    for (let i = 0; i < planets.length; i++) {
-      const planetCard = document.createElement("div");
-      planetCard.className = "planetCard";
-      planetCard.style.cssText = `
-        background-color: #cdeac0;
-        border: black solid 3px;
-        border-radius: 10px;
-        width: 500px;
-        height: 60px;
-        margin: 15px; 
-        display:flex;
-        justify-content:left;
-        padding-left: 10px;
-        align-items:center;      
-        `;
-      flex.appendChild(planetCard);
-
-      const name = document.createElement("p");
-      name.className = "name";
-      name.style.cssText =
-        "font-weight: 600; font-size: 22px; display: block; padding: 10px";
-      name.innerHTML = `${planets[i]}`;
-      planetCard.append(name);
-
-      const planetImg = document.createElement("img");
-      planetImg.className = "planetImg";
-      planetImg.src = "assets/globe.svg";
-      planetImg.style.cssText =
-        "display: block; padding: 10px 20px; width: 20px; height: 30px; margin-left: auto;";
-      planetCard.append(planetImg);
-    }
-
-    const nextButton = document.createElement("button");
-    nextButton.className = `styleButton`;
-    nextButton.textContent = "Next";
-    flex.appendChild(nextButton);
-  
-    nextButton.addEventListener("click", () => {
-      add5Planets(planetsSubArray[1]);
-    });
-  }
-
-  add5Planets(planetsSubArray[0])
-
-  return planetsSubArray;
+  showPlanets(planets)
 }
+
+let planetsData = null; 

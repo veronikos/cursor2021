@@ -1,0 +1,155 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  font-family: "Source Sans Pro", sans-serif;
+  text-align: center;
+}
+
+i,
+p,
+span {
+  display: inline-block;
+}
+
+span {
+  font-weight: 500;
+}
+
+ul {
+  list-style: none;
+  display: inline-block;
+}
+
+li {
+  display: inline-block;
+  margin-left: 10px;
+}
+
+header {
+  width: 100%;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  padding-bottom: 70px;
+}
+
+.header-text ul {
+  margin: auto;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 20px;
+}
+
+.header-text li {
+  font-size: 20px;
+  margin: 0 40px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #e4cd05;
+}
+
+.styleButton {
+  background-color: #e4cd05;
+  border: black solid 3px;
+  border-radius: 10px;
+  color: black;
+  margin: 20px;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  font-family: inherit;
+  font-weight: 600;
+}
+
+#film-id {
+  width: 50px;
+  padding: 5px;
+  background-color: cornsilk;
+}
+
+.content {
+  width: 100%;
+}
+
+.field {
+  height: auto;
+  display: flex;
+  justify-content: center;
+}
+
+footer {
+  position: absolute;
+  background-color: lavender;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer-text {
+  padding: 20px;
+}
+
+.flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 15px;
+  max-width: 1300px;
+}
+
+.flexPlanets {
+    display: flex;
+  flex-direction: row;
+ justify-content: center;
+  flex-wrap: wrap;
+    padding: 15px;
+     max-width: 300px;
+}
+
+.caracterCard {
+    padding: 10px;
+			  text-align: center;
+        border: black solid 3px;
+        border-radius: 10px;
+        width: 200px;
+        height: 120px;
+        margin: 15px;
+}
+
+.name {
+    font-weight: 600; font-size: 22px; display: block; padding: 10px
+}
+
+.gender {
+    display: block; padding: 10px; width: 20px; height: 30px; margin-left: auto; margin-right: auto;
+}
+
+.planetCard {
+    background-color: #cdeac0;
+        border: black solid 3px;
+        border-radius: 10px;
+        width: 500px;
+        height: 60px;
+        margin: 15px; 
+        display:flex;
+        justify-content:left;
+        padding-left: 10px;
+        align-items:center;
+}
+
+.planetImg {
+    display: block; padding: 10px 20px; width: 20px; height: 30px; margin-left: auto;
+}
+
